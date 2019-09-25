@@ -41,6 +41,7 @@ body {
 
   &:hover {
     cursor: pointer;
+    border: 1px solid transparent;
   }
 }
 
@@ -237,4 +238,63 @@ input[type="text"] {
   display: block;
   width: 100%;
   text-transform: uppercase;
+}
+
+/* Portrait */
+//@media only screen
+////and (min-device-width: 375px)
+////and (max-device-width: 812px)
+////and (-webkit-min-device-pixel-ratio: 3)
+////and (orientation: portrait) {
+////  * {
+////    display: none;
+////  }
+////}
+
+@media only screen and (max-width: 550px) {
+  #cover-container #cover-logo {
+    top: -50px;
+    left: -64px;
+  }
+
+  #cover-container #cover-focus {
+    bottom: -64px;
+    right: -100px;
+    max-width: 110%;
+  }
+
+  #intro-text-container {
+    padding-left: 20px;
+  }
+
+  .xl-text {
+    font-size: 3em !important;
+    margin-bottom: $gutter !important;
+  }
+
+  .lg-text {
+    font-size: 1.8em !important;
+  }
+
+  #cover-container #intro-text-container {
+    left: 0;
+  }
+
+  #email-signup > div {
+    margin-left: 0 !important;
+    margin-top: $gutter;
+  }
+
+  .split-image-section {
+    display: block;
+    height: auto;
+
+    > div {
+      width: 100%;
+    }
+
+    .split-image {
+      height: 100vh !important;
+    }
+  }
 }
