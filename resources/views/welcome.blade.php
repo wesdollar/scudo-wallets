@@ -27,7 +27,7 @@
             <img id="cover-focus" src="{{ asset("img/landing/skull-cutout-large.png") }}" alt="SCUDO Wallets">
         </div>
         <div class="callout-section" id="email-signup">
-            <h2>Get your's first.</h2>
+            <h2>Get yours first.</h2>
             <h3>Add your email and receive a special pre-order offer.</h3>
             <form method="POST" action="/join" id="sub">
                 @csrf
