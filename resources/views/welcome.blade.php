@@ -73,7 +73,7 @@
             <div class="split-content">
                 <h1>Hold Your Life</h1>
                 <p>
-                    Designed to hold exactly what your life needs. Fits in your pocket, handles nicely in your hand. Packs cards, cash, and those personal touches in a easy-to-open, convenient to find, yet completely secure package.
+                    Designed to hold exactly what your life needs. Fits in your pocket, handles nicely in your hand. Packs cards, cash, and those personal touches in an easy-to-open, convenient to find, yet completely secure package.
                 </p>
                 <div class="bordered-callout">
                     Coming October 2019
