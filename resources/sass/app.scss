@@ -304,6 +304,7 @@ input[type="text"] {
   }
 }
 
-html, body {
+html, body, * {
   overflow-x: hidden;
+  max-width: 100%;
 }
