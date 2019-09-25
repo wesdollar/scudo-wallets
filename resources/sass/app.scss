@@ -261,7 +261,7 @@ input[type="text"] {
   #cover-container #cover-focus {
     bottom: -64px;
     right: -100px;
-    max-width: 110%;
+    max-width: 100%;
   }
 
   #intro-text-container {
@@ -301,11 +301,5 @@ input[type="text"] {
     .bordered-callout {
       font-size: 1em;
     }
-  }
-
-  #cover-container #cover-focus {
-    bottom: 0;
-    right: 0;
-    max-width: 100%;
   }
 }
