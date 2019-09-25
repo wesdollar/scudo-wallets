@@ -259,7 +259,7 @@ input[type=text]::placeholder {
   }
 
   #cover-container #cover-focus {
-    bottom: 0;
+    bottom: -106px;
     left: 0;
     max-width: 100%;
   }
