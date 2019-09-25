@@ -24,7 +24,7 @@
                     // Coming October 2019
                 </span>
             </div>
-{{--            <img id="cover-focus" src="{{ asset("img/landing/skull-cutout-large.png") }}" alt="SCUDO Wallets">--}}
+            <img id="cover-focus" src="{{ asset("img/landing/skull-cutout-large.png") }}" alt="SCUDO Wallets">
         </div>
         <div class="callout-section" id="email-signup">
             <h2>Get your's first.</h2>

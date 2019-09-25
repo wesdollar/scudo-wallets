@@ -302,4 +302,10 @@ input[type="text"] {
       font-size: 1em;
     }
   }
+
+  #cover-container #cover-focus {
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+  }
 }
