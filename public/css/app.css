@@ -298,5 +298,9 @@ input[type=text]::placeholder {
   .split-image-section .split-image {
     height: 100vh !important;
   }
+
+  .split-image-section .bordered-callout {
+    font-size: 1em;
+  }
 }
 
