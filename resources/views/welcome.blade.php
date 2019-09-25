@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Scudo Wallets</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
+        <link href="{{ asset("css/app.css") }}" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/eb0374bc9f.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="cover-container">
+            <img src="{{ asset("img/logo-transparent.png") }}" alt="SCUDO Wallets Logo" id="cover-logo">
+            <div id="intro-text-container">
+                <span class="xl-text">
+                    SCUDO Wallets
+                </span>
+                <span class="lg-text">
+                    Your best wallet yet.
+                </span>
+                <span id="coming-message">
+                    // Coming October 2019
+                </span>
+            </div>
+            <img id="cover-focus" src="{{ asset("img/landing/skull-cutout-large.png") }}" alt="SCUDO Wallets">
+        </div>
+        <div class="callout-section" id="email-signup">
+            <h2>Get your's first.</h2>
+            <h3>Add your email and receive a special pre-order offer.</h3>
+            <i class="far fa-envelope"></i>
+            <input type="text" name="email" placeholder="email address">
+            <div class="btn btn-lg btn-primary gutter-left">
+                JOIN
+            </div>
+        </div>
+        <div class="split-image-section">
+            <div class="split-image" id="split-one">
+                &nbsp;
+            </div>
+            <div class="split-content">
+                <h1>The Perfect Wallet</h1>
+                <p>
+                    Lightweight, holds everything you need, durable, and truly unique. You won't find a better wallet.
+                </p>
+                <div class="bordered-callout">
+                    Coming October 2019
+                </div>
+            </div>
+        </div>
+        <div class="split-image-section reverse background-primary">
+            <div class="split-image" id="split-four">
+                &nbsp;
+            </div>
+            <div class="split-content">
+                <h1>Unique in Every Way</h1>
+                <p>
+                    This wallet is designed for those that want something more. Don't settle for the status quo. Get the wallet that's made for you.
+                </p>
+                <div class="bordered-callout">
+                    Coming October 2019
+                </div>
+            </div>
+        </div>
+        <div class="split-image-section">
+            <div class="split-image" id="split-three">
+                &nbsp;
+            </div>
+            <div class="split-content">
+                <h1>Hold Your Life</h1>
+                <p>
+                    Designed to hold exactly what your life needs. Fits in your pocket, handles nicely in your hand. Packs cards, cash, and those personal touches in a easy-to-open, convenient to find, yet completely secure package.
+                </p>
+                <div class="bordered-callout">
+                    Coming October 2019
+                </div>
+            </div>
+        </div>
+        <div class="split-image-section reverse background-primary">
+            <div class="split-image" id="split-two">
+                &nbsp;
+            </div>
+            <div class="split-content">
+                <h1>Details Matter</h1>
+                <p>
+                    From the laser etching to the overall design, we've ensured every detail is perfect. This is the wallet you've been waiting for. This is your wallet. Designed by SCUDO, made for you.
+                </p>
+                <div class="bordered-callout">
+                    Coming October 2019
+                </div>
+            </div>
+        </div>
+
+        @if(config('app.env') == 'local')
+            <script src="http://localhost:35729/livereload.js"></script>
+        @endif
+    </body>
+</html>
