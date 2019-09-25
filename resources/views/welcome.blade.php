@@ -29,11 +29,14 @@
         <div class="callout-section" id="email-signup">
             <h2>Get your's first.</h2>
             <h3>Add your email and receive a special pre-order offer.</h3>
-            <i class="far fa-envelope"></i>
-            <input type="text" name="email" placeholder="email address">
-            <div class="btn btn-lg btn-primary gutter-left">
-                JOIN
-            </div>
+            <form method="POST" action="/join" id="sub">
+                @csrf
+                <i class="far fa-envelope"></i>
+                <input type="text" name="email" placeholder="email address">
+                <div class="btn btn-lg btn-primary gutter-left" role="button" tabindex="0" onclick="document.getElementById('sub').submit()">
+                    JOIN
+                </div>
+            </form>
         </div>
         <div class="split-image-section">
             <div class="split-image" id="split-one">
