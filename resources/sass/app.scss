@@ -286,6 +286,10 @@ input[type="text"] {
     margin-top: $gutter;
   }
 
+  #email-signup h3 {
+    font-size: 1.2em;
+  }
+
   .split-image-section {
     display: block;
     height: auto;
@@ -301,5 +305,10 @@ input[type="text"] {
     .bordered-callout {
       font-size: 1em;
     }
+  }
+
+  .gutter-left {
+    margin-left: 0 !important;
+    margin-top: $gutter;
   }
 }
