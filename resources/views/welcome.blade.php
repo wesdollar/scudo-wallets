@@ -28,7 +28,7 @@
         </div>
         <div class="callout-section" id="email-signup">
             <h2>Get yours first.</h2>
-            <h3>Add your email and receive a special pre-order offer.</h3>
+            <h3>Add your email to be the first to know.</h3>
             <form method="POST" action="/join" id="sub">
                 @csrf
                 <i class="far fa-envelope"></i>
