@@ -176,6 +176,10 @@ input[type=text]::placeholder {
   padding-left: 30px;
 }
 
+#email-signup h3 {
+  font-size: 1.2em;
+}
+
 .split-image-section {
   display: flex;
   height: 100vh;
