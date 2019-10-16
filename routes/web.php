@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::post('/join', 'JoinController@store');
+
+Route::get('/preorder', function () {
+    return redirect('http://www.mgwscudo.com/scudo-vectors');
+});
