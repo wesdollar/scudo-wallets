@@ -21,7 +21,7 @@
                     Your best wallet yet.
                 </span>
                 <span id="coming-message">
-                    // Coming October 2019
+                    // Coming Black Friday 2019
                 </span>
             </div>
             <img id="cover-focus" src="{{ asset("img/landing/skull-cutout-large.png") }}" alt="SCUDO Wallets">
@@ -48,7 +48,7 @@
                     Lightweight, holds everything you need, durable, and truly unique. You won't find a better wallet.
                 </p>
                 <div class="bordered-callout">
-                    Coming October 2019
+                    Coming Black Friday 2019
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
                     This wallet is designed for those that want something more. Don't settle for the status quo. Get the wallet that's made for you.
                 </p>
                 <div class="bordered-callout">
-                    Coming October 2019
+                    Coming Black Friday 2019
                 </div>
             </div>
         </div>
@@ -76,7 +76,7 @@
                     Designed to hold exactly what your life needs. Fits in your pocket, handles nicely in your hand. Packs cards, cash, and those personal touches in an easy-to-open, convenient to find, yet completely secure package.
                 </p>
                 <div class="bordered-callout">
-                    Coming October 2019
+                    Coming Black Friday 2019
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
                     From the laser etching to the overall design, we've ensured every detail is perfect. This is the wallet you've been waiting for. This is your wallet. Designed by SCUDO, made for you.
                 </p>
                 <div class="bordered-callout">
-                    Coming October 2019
+                    Coming Black Friday 2019
                 </div>
             </div>
         </div>
