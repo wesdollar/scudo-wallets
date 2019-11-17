@@ -1,15 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom";
 
-export const App = () => (
+const App = () => (
   <div>
     <h1>Hello World!</h1>
-    <p>I&apos;m React. Broseph - through me!</p>
+    <p>
+      I&apos;m React. I&apos;m being rendered from the server! We have
+      LiveReload!
+    </p>
   </div>
 );
 
-// eslint-disable-next-line no-undef
-if (document.getElementById("app")) {
-  // eslint-disable-next-line no-undef
-  ReactDOM.render(<App />, document.getElementById("app"));
-}
+export default App;

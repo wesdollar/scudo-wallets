@@ -3,6 +3,12 @@ $primary: #e91414;
 
 $gutter: 30px;
 
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 .gutter-left {
   margin-left: $gutter;
 }

@@ -1,11 +1,12 @@
 /*eslint-disable*/
-import app from "./app";
-import renderVueComponentToString from "vue-server-renderer/basic";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
+import App from "./components/App";
 
-renderVueComponentToString(app, (err, html) => {
-  if (err) {
-    throw new Error(err);
-  }
+const html = ReactDOMServer.renderToString(
+  <div id="app">
+    <App />
+  </div>
+);
 
-  dispatch(html);
-});
+dispatch(html);

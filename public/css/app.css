@@ -1,3 +1,9 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 .gutter-left {
   margin-left: 30px;
 }
