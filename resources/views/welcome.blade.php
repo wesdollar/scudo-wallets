@@ -14,13 +14,14 @@
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
   <link href="{{ mix("css/app.css") }}" rel="stylesheet">
   <script src="https://kit.fontawesome.com/eb0374bc9f.js" crossorigin="anonymous"></script>
+  <script defer src="{{ mix('js/ssr-client.js') }}"></script>
 </head>
 <body>
 <div id="cover-container">
   <img src="{{ asset("img/logo-transparent.png") }}" alt="SCUDO Wallets Logo" id="cover-logo">
   <div id="intro-text-container">
     <span class="xl-text">
-      SCUDO Wallets
+      {{ config("app.name") }}
     </span>
     <span class="lg-text">
       Your best wallet yet.
@@ -108,7 +109,6 @@
 </div>
 
 {!! ssr('js/ssr-server.js')->fallback('<div id="app"></div>')->render() !!}
-<script src="{{ mix('js/ssr-client.js') }}"></script>
 
 @if(config('app.env') == 'local')
   <script src="http://localhost:35729/livereload.js"></script>

@@ -1,5 +1,7 @@
 <?php
 
+$companyName = "Scudo";
+
 return [
 
     /*
@@ -13,7 +15,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', "$companyName Wallets"),
+    'company_name' => $companyName,
 
     /*
     |--------------------------------------------------------------------------
