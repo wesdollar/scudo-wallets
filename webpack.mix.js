@@ -1,11 +1,22 @@
-const mix = require('laravel-mix');
+// eslint-disable-next-line no-undef
+const mix = require("laravel-mix");
 
-mix.sass('resources/sass/app.scss', 'public/css');
+mix
+  .react("resources/js/app.js", "public/js")
+  .sass("resources/sass/app.scss", "public/css");
+// .js("resources/js/ssr-server.js", "public/js");
 
-var LiveReloadPlugin = require('webpack-livereload-plugin');
+if (!mix.inProduction()) {
+  mix.sourceMaps();
 
-mix.webpackConfig({
-  plugins: [
-    new LiveReloadPlugin()
-  ]
-});
+  // eslint-disable-next-line no-undef
+  const LiveReloadPlugin = require("webpack-livereload-plugin");
+
+  mix.webpackConfig({
+    plugins: [new LiveReloadPlugin()]
+  });
+}
+
+if (mix.inProduction()) {
+  mix.version();
+}
