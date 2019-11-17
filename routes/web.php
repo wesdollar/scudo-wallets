@@ -12,11 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  $launchDateMessage = "Coming Black Friday 2019";
+
+  return view('welcome', compact("launchDateMessage"));
 });
 
 Route::post('/join', 'JoinController@store');
 
 Route::get('/preorder', function () {
     return redirect('http://www.mgwscudo.com/scudo-vectors');
+});
+
+Route::get('/react', function () {
+  return view('react');
 });
