@@ -107,11 +107,11 @@
   </div>
 </div>
 
-<div id="app"></div>
+{!! ssr('js/ssr-server.js')->fallback('<div id="app"></div>')->render() !!}
+<script src="{{ mix('js/ssr-client.js') }}"></script>
 
 @if(config('app.env') == 'local')
   <script src="http://localhost:35729/livereload.js"></script>
 @endif
-<script src="{{mix("js/app.js")}}"></script>
 </body>
 </html>

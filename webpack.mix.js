@@ -2,9 +2,9 @@
 const mix = require("laravel-mix");
 
 mix
-  .react("resources/js/app.js", "public/js")
+  .react("resources/js/ssr-client.js", "public/js")
+  .react("resources/js/ssr-server.js", "public/js")
   .sass("resources/sass/app.scss", "public/css");
-// .js("resources/js/ssr-server.js", "public/js");
 
 if (!mix.inProduction()) {
   mix.sourceMaps();
