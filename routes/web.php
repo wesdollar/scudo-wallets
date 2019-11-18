@@ -26,3 +26,7 @@ Route::get('/preorder', function () {
 Route::get('/react', function () {
   return view('react');
 });
+
+Route::fallback(function () {
+  return view('react');
+});
