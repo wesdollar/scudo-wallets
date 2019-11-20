@@ -16,3 +16,4 @@ public/js/ssr-server.js
 public/js/ssr-client.js
 public/images/*
 public/mix-manifest.json
+.local_assets

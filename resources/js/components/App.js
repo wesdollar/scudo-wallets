@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import Header from "./Header/Header";
-import Home from "../pages/Home";
+import Home from "../pages/Home/Home";
 import Products from "../pages/Products/Products";
 import ProductDetails from "../pages/ProductDetails/ProductDetails";
 import { StyledPageWrapper } from "./App.styled";
