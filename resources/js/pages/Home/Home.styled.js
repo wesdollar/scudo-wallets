@@ -60,9 +60,15 @@ export const StyledFullHeightSection = styled.div`
       margin: 30px 15px 0;
     }
   }
+
+  .split-content {
+    h1 {
+      color: ${colors.primary};
+    }
+  }
 `;
 
 export const StyledCalloutSection = styled.div`
-  background: $primary;
-  color: $white;
+  background: ${colors.primary};
+  color: ${colors.white};
 `;

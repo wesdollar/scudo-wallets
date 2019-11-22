@@ -1,46 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { app } from "../../constants/app";
-import { StyledCalloutSection, StyledFullHeightSection } from "./Home.styled";
-import featuresImage from "../../../img/hp-features-cutout.png";
+import { StyledCalloutSection } from "./Home.styled";
 import Button from "../../components/Button/Button";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
-import { route } from "../../constants/routes";
-import { getSlug } from "../../helpers/getSlug";
+import { routes } from "../../constants/routes";
 import { Redirect } from "react-router-dom";
 import { scrollToTop } from "../../helpers/scrollToTop";
-
-const ipsum = "Ultricies Condimentum Elit Tristique Consectetur";
-const features = [
-  {
-    header: "Swappable Endcaps",
-    text: ipsum
-  },
-  {
-    header: "Smooth Action",
-    text: ipsum
-  }
-  // {
-  //   header: "Awesome Pin",
-  //   text: ipsum
-  // },
-  // {
-  //   header: "Beveled Stainless Thing",
-  //   text: ipsum
-  // },
-  // {
-  //   header: "Coated Finish",
-  //   text: ipsum
-  // },
-  // {
-  //   header: "Grippy Basepad",
-  //   text: ipsum
-  // }
-];
+import { colors } from "../../constants/colors";
+import TopFeatures from "../../components/TopFeatures/TopFeatures";
 
 const Home = () => {
   const [redirectShopWallets, setRedirectShopWallets] = useState(false);
   const launchMessage = "Coming Black Friday 2019";
-  const shopAllWallets = "Shop All Wallets";
 
   useEffect(() => {
     return () => {
@@ -58,7 +29,7 @@ const Home = () => {
       <Redirect
         push
         to={{
-          pathname: `${route.products}`
+          pathname: `${routes.products.path}`
         }}
       />
     );
@@ -76,7 +47,7 @@ const Home = () => {
           <span className="xl-text">{app.name}</span>
           <span className="lg-text">Your best wallet yet.</span>
           <span id="coming-message">// {launchMessage}</span>
-          <Button text={shopAllWallets} handleOnClick={onButtonClick} />
+          <Button text={app.shopAllWallets} handleOnClick={onButtonClick} />
         </div>
         <img
           id="cover-focus"
@@ -84,39 +55,7 @@ const Home = () => {
           alt={app.name}
         />
       </div>
-      <StyledFullHeightSection>
-        <div className={"top-features hp-features-row"}>
-          {features.map((feature, index) => (
-            <div className={"hp-feature"} key={`feature-${index}`}>
-              <h4>{feature.header}</h4>
-              <p>{feature.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className={"hp-features-column"}>
-          {features.map((feature, index) => (
-            <div className={"hp-feature"} key={`feature-${index}`}>
-              <h4>{feature.header}</h4>
-              <p>{feature.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className={"hp-features-img"}>
-          <img src={featuresImage} alt={`${app.name} Features`} />
-        </div>
-        <div className={"hp-features-column"}>
-          {features.map((feature, index) => (
-            <div className={"hp-feature"} key={`feature-${index}`}>
-              <h4>{feature.header}</h4>
-              <p>{feature.text}</p>
-            </div>
-          ))}
-        </div>
-        <div className={"bottom-features hp-features-row"}>
-          <Button text={shopAllWallets} handleOnClick={onButtonClick} />
-          <Button text={"View All Features"} />
-        </div>
-      </StyledFullHeightSection>
+      <TopFeatures />
       <StyledCalloutSection>
         <NetflixScroll />
       </StyledCalloutSection>
@@ -130,7 +69,7 @@ const Home = () => {
             Lightweight, holds everything you need, durable, and truly unique.
             You won&apos;t find a better wallet.
           </p>
-          <div className="bordered-callout">{launchMessage}</div>
+          <Button text={app.shopAllWallets} handleOnClick={onButtonClick} />
         </div>
       </div>
       <div className="split-image-section reverse background-primary">
@@ -144,7 +83,11 @@ const Home = () => {
             Don&apos;t settle for the status quo. Get the wallet that&apos;s
             made for you.
           </p>
-          <div className="bordered-callout">{launchMessage}</div>
+          <Button
+            text={app.shopAllWallets}
+            handleOnClick={onButtonClick}
+            background={colors.white}
+          />
         </div>
       </div>
       <div className="split-image-section">
@@ -159,7 +102,7 @@ const Home = () => {
             touches in an easy-to-open, convenient to find, yet completely
             secure package.
           </p>
-          <div className="bordered-callout">{launchMessage}</div>
+          <Button text={app.shopAllWallets} handleOnClick={onButtonClick} />
         </div>
       </div>
       <div className="split-image-section reverse background-primary">
@@ -173,7 +116,11 @@ const Home = () => {
             every detail is perfect. This is the wallet you&apos;ve been waiting
             for. This is your wallet. Designed by {app.scudo}, made for you.
           </p>
-          <div className="bordered-callout">{launchMessage}</div>
+          <Button
+            text={app.shopAllWallets}
+            handleOnClick={onButtonClick}
+            background={colors.white}
+          />
         </div>
       </div>
     </React.Fragment>

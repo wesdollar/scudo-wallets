@@ -3,7 +3,7 @@ import { vectors } from "../../mockData/products";
 import { StyledContainer } from "./ProductsList.styled";
 import { getImageFilePath } from "../../helpers/getImageFilePath";
 import { sortBy } from "lodash";
-import { route } from "../../constants/routes";
+import { routes } from "../../constants/routes";
 import { Redirect } from "react-router-dom";
 import { getSlug } from "../../helpers/getSlug";
 import { scrollToTop } from "../../helpers/scrollToTop";
@@ -27,7 +27,7 @@ const ProductsList = () => {
       <Redirect
         push
         to={{
-          pathname: `${route.products}/${getSlug(selectedProductTitle)}`
+          pathname: `${routes.products.path}/${getSlug(selectedProductTitle)}`
         }}
       />
     );

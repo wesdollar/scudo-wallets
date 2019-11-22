@@ -6,6 +6,7 @@ export const StyledContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-top: ${px(gutters.gutter)};
+  justify-content: center;
 
   div {
     padding-left: ${px(gutters.halfGutter)};

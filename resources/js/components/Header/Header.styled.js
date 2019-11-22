@@ -38,8 +38,7 @@ export const StyledNavContainer = styled.div`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  padding-left: ${px(gutters.halfGutter)};
-  padding-right: ${px(gutters.halfGutter)};
+  padding: ${px(gutters.twoThirdsGutter)} ${px(gutters.halfGutter)};
   text-transform: uppercase;
   text-decoration: none;
   color: ${colors.primary};

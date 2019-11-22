@@ -6,31 +6,31 @@ import {
   StyledNavLink,
   StyledPhoneContainer
 } from "./Header.styled";
-import { scudo } from "../../constants/scudo";
-import { route } from "../../constants/routes";
-
-const navLinks = [
-  { title: "Shop Wallets" },
-  { title: "Wallet Features" },
-  { title: "FAQs" },
-  { title: "About" },
-  { title: "Contact" }
-];
+import { routes } from "../../constants/routes";
+import { Link } from "react-router-dom";
+import { scrollToTop } from "../../helpers/scrollToTop";
+import { app } from "../../constants/app";
 
 const Header = () => (
   <StyledHeader>
     <StyledLogoContainer>
-      <span>SCUDO</span>
+      <span>
+        <Link to={"/react"}>SCUDO</Link>
+      </span>
     </StyledLogoContainer>
     <StyledNavContainer>
-      {navLinks.map((navLink, index) => (
-        <StyledNavLink to={route.products} key={`navLink-${index}`}>
-          {navLink.title}
+      {Object.keys(routes).map((route, index) => (
+        <StyledNavLink
+          onClick={scrollToTop}
+          to={routes[route].path}
+          key={`navLink-${index}`}
+        >
+          {route}
         </StyledNavLink>
       ))}
     </StyledNavContainer>
     <StyledPhoneContainer>
-      <span>{scudo.phone}</span>
+      <span>{app.phone}</span>
     </StyledPhoneContainer>
   </StyledHeader>
 );
