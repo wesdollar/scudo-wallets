@@ -1,8 +1,11 @@
 import styled from "styled-components";
 import { colors } from "../../constants/colors";
+import { px } from "../../helpers/units";
+import { gutters } from "../../constants/gutters";
 
 export const StyledFullHeightSection = styled.div`
-  height: 100vh;
+  min-height: 100vh;
+  padding: ${px(gutters.doubleGutter)} 0;
   background: ${colors.white};
   align-items: center;
   align-content: center;
