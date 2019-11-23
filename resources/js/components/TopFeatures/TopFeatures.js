@@ -5,35 +5,42 @@ import Button from "../Button/Button";
 import { StyledFullHeightSection } from "../../pages/Home/Home.styled";
 import { scrollToTop } from "../../helpers/scrollToTop";
 import { routes } from "../../constants/routes";
-import { Redirect } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Redirect, useLocation } from "react-router-dom";
 
-const ipsum = "Ultricies Condimentum Elit Tristique Consectetur";
-const features = [
+const featuresBlock1 = [
   {
-    header: "Swappable Endcaps",
-    text: ipsum
+    header: "Swappable Lids & Bases",
+    text:
+      "Collect all the logos and swap out your wallet's capacity to fit the needs of day"
   },
   {
-    header: "Smooth Action",
-    text: ipsum
+    header: "Locks Tight, Easy to Open",
+    text:
+      "Unique toggle mechanism keeps contents where they belong, and still allows for quick one-handed opening"
   }
-  // {
-  //   header: "Awesome Pin",
-  //   text: ipsum
-  // },
-  // {
-  //   header: "Beveled Stainless Thing",
-  //   text: ipsum
-  // },
-  // {
-  //   header: "Coated Finish",
-  //   text: ipsum
-  // },
-  // {
-  //   header: "Grippy Basepad",
-  //   text: ipsum
-  // }
+];
+
+const featuresBlock2 = [
+  {
+    header: "Lightweight at 4oz",
+    text: "Fits in any pocket, and at 4oz you'll hardly know it's there"
+  },
+  {
+    header: "Customizable Capacity",
+    text:
+      "Select from 10, 14, or 18 card capacity, or collect them all to swap out on demand"
+  }
+];
+
+const featuresBlock3 = [
+  {
+    header: "Built to Last",
+    text: "CNC Machined from 6061 aluminum and anodized to last"
+  },
+  {
+    header: "Made for You",
+    text: "A wallet as unique as you, perfect down to the smallest of details"
+  }
 ];
 
 const TopFeatures = () => {
@@ -68,7 +75,7 @@ const TopFeatures = () => {
   return (
     <StyledFullHeightSection>
       <div className={"top-features hp-features-row"}>
-        {features.map((feature, index) => (
+        {featuresBlock1.map((feature, index) => (
           <div className={"hp-feature"} key={`feature-${index}`}>
             <h4>{feature.header}</h4>
             <p>{feature.text}</p>
@@ -76,7 +83,7 @@ const TopFeatures = () => {
         ))}
       </div>
       <div className={"hp-features-column"}>
-        {features.map((feature, index) => (
+        {featuresBlock2.map((feature, index) => (
           <div className={"hp-feature"} key={`feature-${index}`}>
             <h4>{feature.header}</h4>
             <p>{feature.text}</p>
@@ -87,7 +94,7 @@ const TopFeatures = () => {
         <img src={featuresImage} alt={`${app.name} Features`} />
       </div>
       <div className={"hp-features-column"}>
-        {features.map((feature, index) => (
+        {featuresBlock3.map((feature, index) => (
           <div className={"hp-feature"} key={`feature-${index}`}>
             <h4>{feature.header}</h4>
             <p>{feature.text}</p>

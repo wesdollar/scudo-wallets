@@ -1,4 +1,5 @@
 import { productId } from "../constants/productIds";
+import { app } from "../constants/app";
 
 export const getProductId = (product, type = "") => {
   if (!type.length) {
@@ -11,5 +12,5 @@ export const getProductId = (product, type = "") => {
 export const getAddToCartUrl = (product, type = "") => {
   const productId = getProductId(product, type);
 
-  return `/cart/add/${productId}`;
+  return `${app.apiUrl}/cart/add/${productId}`;
 };

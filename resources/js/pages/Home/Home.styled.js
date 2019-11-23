@@ -16,9 +16,14 @@ export const StyledFullHeightSection = styled.div`
   flex-flow: row wrap;
 
   .hp-features-row {
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
     width: 100%;
+
+    .hp-feature {
+      max-width: 35%;
+      text-align: center;
+    }
   }
 
   .hp-features-img,
@@ -61,6 +66,10 @@ export const StyledFullHeightSection = styled.div`
   .bottom-features {
     span {
       margin: 30px 15px 0;
+    }
+
+    &.hp-features-row {
+      justify-content: center;
     }
   }
 

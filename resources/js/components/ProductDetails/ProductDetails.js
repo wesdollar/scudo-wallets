@@ -11,7 +11,6 @@ import { getImageFilePath } from "../../helpers/getImageFilePath";
 import { getPricing, getPricingOptions } from "../../helpers/getPricing";
 import { productType } from "../../constants/productTypes";
 import { getAddToCartUrl } from "../../helpers/getAddToCartUrl";
-import { StyledButton } from "../Button/Button.styled";
 import Button from "../Button/Button";
 
 const fieldNames = {
@@ -220,9 +219,9 @@ const ProductDetails = ({ product }) => {
             </StyledProductSelect>
           ))}
 
-          <StyledButton onClick={event => handleAddToCart(event, title, type)}>
-            Add To Cart
-          </StyledButton>
+          <Button onClick={event => handleAddToCart(event, title, type)}>
+            Add To Carts
+          </Button>
           <Button
             text={"View All Features"}
             handleOnClick={handleFeaturesClick}

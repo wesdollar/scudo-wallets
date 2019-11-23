@@ -9,7 +9,6 @@ import { getImageFilePath } from "../../helpers/getImageFilePath";
 import { getPricing, getPricingOptions } from "../../helpers/getPricing";
 import { productType } from "../../constants/productTypes";
 import { getAddToCartUrl } from "../../helpers/getAddToCartUrl";
-import { StyledButton } from "../../components/Button/Button.styled";
 import Button from "../../components/Button/Button";
 import { vectors } from "../../mockData/products";
 import { getSlug } from "../../helpers/getSlug";
@@ -227,11 +226,10 @@ const ProductDetails = () => {
               </StyledProductSelect>
             ))}
 
-            <StyledButton
+            <Button
+              text={"Add To Cart"}
               onClick={event => handleAddToCart(event, title, type)}
-            >
-              Add To Cart
-            </StyledButton>
+            />
             <Button
               text={"View All Features"}
               handleOnClick={handleFeaturesClick}
