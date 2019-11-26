@@ -10,13 +10,14 @@ import { routes } from "../../constants/routes";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../helpers/scrollToTop";
 import { app } from "../../constants/app";
+import Logo from "../../svg/Logo";
 
 const Header = () => (
   <StyledHeader>
     <StyledLogoContainer>
-      <span>
-        <Link to={"/react"}>SCUDO</Link>
-      </span>
+      <Link to={"/react"}>
+        <Logo />
+      </Link>
     </StyledLogoContainer>
     <StyledNavContainer>
       {Object.keys(routes).map((route, index) => (

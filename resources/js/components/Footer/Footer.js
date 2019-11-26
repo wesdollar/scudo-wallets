@@ -12,6 +12,7 @@ import {
   faInstagram,
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
+import Logo from "../../svg/Logo";
 
 const socialIcons = [faFacebook, faInstagram, faYoutube];
 
@@ -27,8 +28,8 @@ const Footer = () => {
         <p>Connect With Us</p>
       </div>
       <div className={"flex-container"}>
-        <div>
-          <img src={logo} alt={app.name} />
+        <div id={"footer-logo"}>
+          <Logo />
         </div>
         <div>
           {Object.keys(routes).map((route, index) => (

@@ -27,6 +27,21 @@ export const StyledLogoContainer = styled.div`
   align-content: center;
   justify-content: center;
   align-items: center;
+
+  a {
+    text-align: center;
+  }
+
+  svg {
+    position: relative;
+    top: 5px;
+    width: 50%;
+    height: auto;
+  }
+
+  svg * {
+    fill: ${colors.white};
+  }
 `;
 
 export const StyledNavContainer = styled.div`

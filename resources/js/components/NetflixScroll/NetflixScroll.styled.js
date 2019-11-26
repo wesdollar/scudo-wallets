@@ -5,14 +5,41 @@ import { px } from "../../helpers/units";
 import { colors } from "../../constants/colors";
 
 export const StyledContainer = styled.div`
+  background: ${colors.primary};
+  color: ${colors.white};
+  display: block;
   width: 100%;
-  padding: ${px(gutters.gutter * 2)} ${px(gutters.halfGutter)}
-    ${px(gutters.gutter)};
+
+  .scroll-buttons {
+    display: block;
+    text-align: center;
+    padding-bottom: ${px(gutters.twoThirdsGutter)};
+
+    svg {
+      margin-right: ${px(gutters.smallGutter)};
+      font-size: 1.8em;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    svg * {
+      fill: ${colors.white};
+    }
+  }
+`;
+
+export const StyledScrollContainer = styled.div`
+  width: 100%;
+  padding: ${px(gutters.gutter * 2)} ${px(gutters.halfGutter)} 0;
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
-  background: ${colors.primary};
-  color: ${colors.white};
 
   div {
     margin-left: ${px(gutters.halfGutter)};

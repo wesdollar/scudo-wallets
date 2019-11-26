@@ -14,6 +14,17 @@ export const StyledFooterContainer = styled.div`
   padding: ${px(gutters.gutter)};
   margin: ${px(gutters.doubleGutter)} ${px(gutters.doubleGutter)} 0;
 
+  #footer-logo {
+    svg {
+      width: 65%;
+      height: auto;
+    }
+
+    svg * {
+      fill: ${colors.white};
+    }
+  }
+
   img {
     width: 200px;
     height: auto;

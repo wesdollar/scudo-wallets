@@ -12,6 +12,7 @@ import { getPricing, getPricingOptions } from "../../helpers/getPricing";
 import { productType } from "../../constants/productTypes";
 import { getAddToCartUrl } from "../../helpers/getAddToCartUrl";
 import Button from "../Button/Button";
+import { gutters } from "../../constants/gutters";
 
 const fieldNames = {
   completeWallet: "completeWallet",
@@ -219,13 +220,17 @@ const ProductDetails = ({ product }) => {
             </StyledProductSelect>
           ))}
 
-          <Button onClick={event => handleAddToCart(event, title, type)}>
-            Add To Carts
+          <Button
+            gutterTop={gutters.doubleGutter}
+            onClick={event => handleAddToCart(event, title, type)}
+          >
+            Add To Cart
           </Button>
           <Button
             text={"View All Features"}
             handleOnClick={handleFeaturesClick}
             isTransparent={true}
+            gutterTop={gutters.doubleGutter}
           />
         </form>
       </div>

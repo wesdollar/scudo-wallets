@@ -22,7 +22,7 @@ const featuresBlock1 = [
 
 const featuresBlock2 = [
   {
-    header: "Lightweight at 4oz",
+    header: "Lightweight, Less Than 4oz",
     text: "Fits in any pocket, and at 4oz you'll hardly know it's there"
   },
   {
@@ -82,7 +82,7 @@ const TopFeatures = () => {
           </div>
         ))}
       </div>
-      <div className={"hp-features-column"}>
+      <div className={"hp-features-column left"}>
         {featuresBlock2.map((feature, index) => (
           <div className={"hp-feature"} key={`feature-${index}`}>
             <h4>{feature.header}</h4>
@@ -93,7 +93,7 @@ const TopFeatures = () => {
       <div className={"hp-features-img"}>
         <img src={featuresImage} alt={`${app.name} Features`} />
       </div>
-      <div className={"hp-features-column"}>
+      <div className={"hp-features-column right"}>
         {featuresBlock3.map((feature, index) => (
           <div className={"hp-feature"} key={`feature-${index}`}>
             <h4>{feature.header}</h4>

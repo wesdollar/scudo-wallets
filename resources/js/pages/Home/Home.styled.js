@@ -58,6 +58,16 @@ export const StyledFullHeightSection = styled.div`
   }
 
   .hp-features-column {
+    &.left {
+      position: relative;
+      left: 100px;
+    }
+
+    &.right {
+      position: relative;
+      right: 100px;
+    }
+
     .hp-feature {
       margin-bottom: 30px;
     }

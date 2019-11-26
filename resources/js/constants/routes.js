@@ -1,4 +1,8 @@
 export const routes = {
+  home: {
+    path: "/react",
+    title: "Home"
+  },
   products: {
     path: "/scudo-vector-wallets",
     title: "Shop Wallets"

@@ -14,6 +14,7 @@ import { vectors } from "../../mockData/products";
 import { getSlug } from "../../helpers/getSlug";
 import { useParams } from "react-router-dom";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
+import { gutters } from "../../constants/gutters";
 
 const fieldNames = {
   completeWallet: "completeWallet",
@@ -229,11 +230,13 @@ const ProductDetails = () => {
             <Button
               text={"Add To Cart"}
               onClick={event => handleAddToCart(event, title, type)}
+              gutterTop={gutters.doubleGutter}
             />
             <Button
               text={"View All Features"}
               handleOnClick={handleFeaturesClick}
               isTransparent={true}
+              gutterTop={gutters.doubleGutter}
             />
           </form>
         </div>
