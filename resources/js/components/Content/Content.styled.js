@@ -9,7 +9,7 @@ export const StyledContentContainer = styled.div`
   ${({ alternateBackground }) =>
     alternateBackground &&
     css`
-      background: ${colors.primary};
-      color: ${colors.white};
+      background: ${colors.mediumGrey};
+      color: ${colors.text.primary};
     `}
 `;

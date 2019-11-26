@@ -56,7 +56,7 @@ export const StyledNavLink = styled(NavLink)`
   padding: ${px(gutters.twoThirdsGutter)} ${px(gutters.halfGutter)};
   text-transform: uppercase;
   text-decoration: none;
-  color: ${colors.primary};
+  color: ${colors.lightBlack};
 
   &:hover {
     cursor: pointer;
@@ -74,4 +74,5 @@ export const StyledPhoneContainer = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: ${colors.lightBlack};
 `;
