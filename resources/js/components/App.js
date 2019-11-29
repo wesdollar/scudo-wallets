@@ -20,7 +20,7 @@ const App = () => (
   <React.Fragment>
     <Header />
     <StyledPageWrapper>
-      <Route exact path="/react" component={Home} />
+      <Route exact path={routes.home.path} component={Home} />
       <Route exact path={routes.products.path} component={Products} />
       <Route
         exact
