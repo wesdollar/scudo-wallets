@@ -109,6 +109,33 @@ const deleteItem = async (productId, setProducts) => {
   }
 };
 
+const copyFromShipping = () => {
+  let inputs = document
+    .getElementById("shipping-form")
+    .getElementsByTagName("input");
+
+  inputs = Array.from(inputs);
+
+  inputs.map(input => {
+    const copyValue = input.value;
+    const inputName = input.name.replace("shipping", "billing");
+
+    try {
+      const [currentInput] = document.getElementsByName(inputName);
+
+      currentInput.value = copyValue;
+    } catch (error) {
+      // do nothing
+    }
+  });
+
+  const [selectedState] = document.getElementsByName("shippingState");
+
+  // eslint-disable-next-line no-magic-numbers
+  document.getElementsByName("billingState")[0].value =
+    selectedState.options[selectedState.selectedIndex].value;
+};
+
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [cartTotal, setCartTotal] = useState(zero);
@@ -290,7 +317,18 @@ const Cart = () => {
                   <AddressForm prefix={formPrefixes.shipping} />
                 </div>
                 <div>
-                  <h2>Billing Information</h2>
+                  <h2>
+                    Billing Information
+                    <span
+                      role={"button"}
+                      tabIndex={0}
+                      onClick={copyFromShipping}
+                      onKeyPress={copyFromShipping}
+                      className={"copy-button"}
+                    >
+                      Copy from Shipping
+                    </span>
+                  </h2>
                   <AddressForm prefix={formPrefixes.billing} />
                 </div>
               </Content>

@@ -57,7 +57,7 @@ const fillFormFieldsWithDummyData = prefix => {
 
 const AddressForm = ({ prefix }) => {
   return (
-    <React.Fragment>
+    <div id={`${prefix}-form`}>
       <Content {...formRowProps}>
         <div>
           <label htmlFor={`${prefix}${fieldId.first}`}>First Name</label>
@@ -240,7 +240,7 @@ const AddressForm = ({ prefix }) => {
         </div>
         <div>&nbsp;</div>
       </Content>
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -155,6 +155,13 @@ export const StyledCartTotalContainer = styled.div`
 
 export const StyledAddressFormsContainer = styled.div`
   margin-top: ${px(gutters.doubleGutter)};
+
+  .copy-button {
+    font-size: ${fontSize.small};
+    display: inline-block;
+    padding-left: ${px(gutters.smallGutter)};
+    color: ${colors.primary};
+  }
 `;
 
 export const StyledTermsAcceptContainer = styled.div`
