@@ -157,10 +157,16 @@ export const StyledAddressFormsContainer = styled.div`
   margin-top: ${px(gutters.doubleGutter)};
 
   .copy-button {
-    font-size: ${fontSize.small};
+    font-size: 0.5em;
     display: inline-block;
     padding-left: ${px(gutters.smallGutter)};
     color: ${colors.primary};
+
+    @media (max-width: ${breakpoint.phone}) {
+      display: block;
+      padding-left: 0;
+      padding-top: ${px(gutters.smallGutter)};
+    }
   }
 `;
 
