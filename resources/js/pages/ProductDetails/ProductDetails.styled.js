@@ -68,35 +68,3 @@ export const StyledHeader2 = styled.h2`
   margin-block-start: 0;
   margin-bottom: 0;
 `;
-
-export const StyledProductSelect = styled.div`
-  label {
-    padding-left: ${px(gutters.halfGutter)};
-  }
-
-  span:first-of-type {
-    display: inline-block;
-    width: 200px;
-  }
-
-  input[type="checkbox"] {
-    position: relative;
-    top: -2px;
-  }
-
-  label,
-  input {
-    &:hover {
-      cursor: pointer;
-    }
-  }
-`;
-
-export const StyledDivider = styled.div`
-  height: 1px;
-  display: block;
-  content: " ";
-  background: ${colors.mediumGrey};
-  margin-top: ${px(gutters.halfGutter)};
-  margin-bottom: ${px(gutters.halfGutter)};
-`;

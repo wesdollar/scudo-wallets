@@ -22,7 +22,11 @@ export const vectors = [
     type: wraps.standard,
     description: "",
     id: 1,
-    wideImage
+    wideImage,
+    override: {
+      price: 79,
+      productId: 101
+    }
   },
   {
     title: "Day of the Dead",
