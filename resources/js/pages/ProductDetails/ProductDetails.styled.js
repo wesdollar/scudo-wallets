@@ -27,6 +27,11 @@ export const StyledContainer = styled.div`
   div.img-container {
     display: flex;
     width: 33%;
+
+    @media (max-width: ${breakpoint.phone}) {
+      width: 100% !important;
+      display: block !important;
+    }
   }
 
   img {
