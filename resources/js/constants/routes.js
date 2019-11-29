@@ -1,6 +1,6 @@
 export const routes = {
   home: {
-    path: "/react",
+    path: "/",
     title: "Home"
   },
   products: {
