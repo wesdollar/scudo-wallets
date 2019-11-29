@@ -10,6 +10,10 @@
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web&display=swap" rel="stylesheet">
   <link href="{{ mix("css/app.css") }}" rel="stylesheet">
   <script defer src="{{ mix('js/ssr-client.js') }}"></script>
+
+  <meta property="og:title" content="Scudo Wallets" />
+  <meta property="og:description" content="Built slim, light, and made to hold everything important. A unique design perfected to fit into your life." />
+  <meta property="og:image" content="https://scudowallets.com/img/fb-og-scudo.jpg" />
 </head>
 <body>
 
