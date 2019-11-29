@@ -11,7 +11,7 @@ const featuresBlock1 = [
   {
     header: "Swappable Lids & Bases",
     text:
-      "Collect all the logos and swap out your wallet's capacity tofit the needs of day."
+      "Collect all the logos and swap out your wallet's capacity to fit the needs of day."
   },
   {
     header: "Locks Tight, Easy to Open",

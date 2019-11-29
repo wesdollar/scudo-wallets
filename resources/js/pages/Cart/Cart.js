@@ -78,9 +78,7 @@ const handleCheckout = async (event, setOrderData) => {
 
       if (json.error && json.creditCardFailed) {
         // eslint-disable-next-line no-alert
-        alert(
-          "We're sorry, but your credit card could not be processed. Please try again."
-        );
+        alert("Your credit card could not be processed. Please try again.");
       }
     }
   } catch (error) {
