@@ -34,9 +34,11 @@ import Loading from "../../components/Loading/Loading";
 
 const zero = 0;
 const twoDecimals = 2;
-const allowCartItemEditControls = false;
+const allowCartItemEditQuantity = false;
+const allowCartItemDelete = true;
 const checkoutFormId = "checkout-form";
 const checkoutUrl = `${app.apiUrl}/checkout/process/`;
+const deleteItemUrl = `${app.apiUrl}/carts/product/delete/`;
 const cartUrl = `${app.apiUrl}/carts/`;
 
 const handleCheckout = async (event, setOrderData) => {
@@ -80,6 +82,29 @@ const handleCheckout = async (event, setOrderData) => {
           "We're sorry, but your credit card could not be processed. Please try again."
         );
       }
+    }
+  } catch (error) {
+    // TODO: handle error
+  }
+};
+
+const deleteItem = async (productId, setProducts) => {
+  let response;
+
+  try {
+    response = await fetch(`${deleteItemUrl}${productId}`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ CID: localStorage.getItem(localStorageKeys.cid) })
+    });
+
+    if (response && response.ok) {
+      const json = await response.json();
+
+      setProducts(json.cart.products);
     }
   } catch (error) {
     // TODO: handle error
@@ -192,7 +217,7 @@ const Cart = () => {
             <div>Total</div>
           </div>
           {products.map((product, index) => {
-            const { name, price, quantity, Logo, Base, Size } = product;
+            const { name, price, quantity, Logo, Base, Size, id } = product;
 
             return (
               <div className={"cart-row"} key={`product-${index}`}>
@@ -209,15 +234,20 @@ const Cart = () => {
                 <div>{price}</div>
                 <div>
                   <em className={"mobile-only"}>Quantity:</em> {quantity}
-                  {allowCartItemEditControls && (
-                    <React.Fragment>
-                      <span>
-                        <FontAwesomeIcon icon={faTrashAlt} />
-                      </span>
-                      <span>
-                        <FontAwesomeIcon icon={faEdit} />
-                      </span>
-                    </React.Fragment>
+                  {allowCartItemDelete && (
+                    <span
+                      onClick={() => deleteItem(id, setProducts)}
+                      role={"button"}
+                      tabIndex={0}
+                      onKeyPress={() => deleteItem(id, setProducts)}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </span>
+                  )}
+                  {allowCartItemEditQuantity && (
+                    <span>
+                      <FontAwesomeIcon icon={faEdit} />
+                    </span>
                   )}
                 </div>
                 <div>{(price * quantity).toFixed(twoDecimals)}</div>

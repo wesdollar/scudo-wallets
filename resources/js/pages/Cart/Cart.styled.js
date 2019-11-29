@@ -82,6 +82,11 @@ export const StyledCartItemsContainer = styled.div`
           &:hover {
             cursor: pointer;
           }
+
+          &:focus {
+            outline: none;
+            color: ${colors.primary};
+          }
         }
       }
 
