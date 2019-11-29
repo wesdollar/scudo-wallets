@@ -141,7 +141,7 @@ export const StyledCartTotalContainer = styled.div`
     text-align: right;
 
     span {
-      width: 90px;
+      width: 100px;
       display: inline-block;
       padding-left: ${px(gutters.gutter)};
     }
