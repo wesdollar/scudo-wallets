@@ -106,7 +106,7 @@ const Cart = () => {
       const cartId = localStorage.getItem(localStorageKeys.cartId) || false;
 
       if (!cartId) {
-        return setIsLoading(true);
+        return setIsLoading(false);
       }
 
       try {
