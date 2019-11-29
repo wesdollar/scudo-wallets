@@ -13,7 +13,7 @@
 
   <meta property="og:title" content="Scudo Wallets" />
   <meta property="og:description" content="Built slim, light, and made to hold everything important. A unique design perfected to fit into your life." />
-  <meta property="og:image" content="https://scudowallets.com/img/fb-og-scudo.jpg" />
+  <meta property="og:image" content="{{ config("app.url") }}/img/fb-og-scudo.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 </head>
