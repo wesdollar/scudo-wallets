@@ -1,6 +1,7 @@
 import React from "react";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import Content from "../../components/Content/Content";
+import { app } from "../../constants/app";
 
 const Faqs = () => {
   const faqs = [
@@ -31,8 +32,7 @@ const Faqs = () => {
     },
     {
       question: "I still have a question!",
-      answer:
-        "We'd love to answer it! Just email us at support@mgwscudo.com or call at 706-793-1770."
+      answer: `We'd love to answer it! Just email us at ${app.email} or call at ${app.phone}.`
     }
   ];
 

@@ -11,6 +11,10 @@ import Faqs from "../pages/Faqs/Faqs";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import Footer from "./Footer/Footer";
+import Cart from "../pages/Cart/Cart";
+import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
+import ReturnPolicy from "../pages/ReturnPolicy/ReturnPolicy";
+import TermsOfService from "../pages/TermsOfService/TermsOfService";
 
 const App = () => (
   <React.Fragment>
@@ -27,6 +31,14 @@ const App = () => (
       <Route exact path={routes.faqs.path} component={Faqs} />
       <Route exact path={routes.about.path} component={About} />
       <Route exact path={routes.contact.path} component={Contact} />
+      <Route exact path={routes.cart.path} component={Cart} />
+      <Route exact path={routes.privacyPolicy.path} component={PrivacyPolicy} />
+      <Route exact path={routes.returnPolicy.path} component={ReturnPolicy} />
+      <Route
+        exact
+        path={routes.termsOfService.path}
+        component={TermsOfService}
+      />
     </StyledPageWrapper>
     <Footer />
   </React.Fragment>

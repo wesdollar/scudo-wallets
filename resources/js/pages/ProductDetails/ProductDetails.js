@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledContainer,
   StyledProductSelect,
@@ -12,9 +12,12 @@ import { getAddToCartUrl } from "../../helpers/getAddToCartUrl";
 import Button from "../../components/Button/Button";
 import { vectors } from "../../mockData/products";
 import { getSlug } from "../../helpers/getSlug";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import { gutters } from "../../constants/gutters";
+import { routes } from "../../constants/routes";
+import { scrollToTop } from "../../helpers/scrollToTop";
+import { localStorageKeys } from "../../constants/localStorageKeys";
 
 const fieldNames = {
   completeWallet: "completeWallet",
@@ -31,8 +34,17 @@ const fieldId = {
 // eslint-disable-next-line no-magic-numbers
 const bases = [10, 14, 18];
 
-const handleFeaturesClick = () => {
-  return (window.location.href = "/scudo-vector-wallets");
+const handleResponse = async response => {
+  if (response && response.ok) {
+    try {
+      const { CID, cartId } = await response.json();
+
+      localStorage.setItem(localStorageKeys.cid, CID);
+      localStorage.setItem(localStorageKeys.cartId, cartId);
+    } catch (error) {
+      // console.error(error);
+    }
+  }
 };
 
 const handleAddToCart = async (event, title, type) => {
@@ -40,12 +52,19 @@ const handleAddToCart = async (event, title, type) => {
   const formData = new FormData(document.getElementById("add-to-cart"));
 
   let response;
+  let data;
 
   // eslint-disable-next-line no-unused-vars
   for (const [product, value] of formData.entries()) {
     if (product === fieldNames.completeWallet) {
       const addToCartUrl = getAddToCartUrl(product, type.toLowerCase());
 
+      data = { Logo: title, Base: value };
+
+      if (localStorage.getItem(localStorageKeys.cid)) {
+        data.CID = localStorage.getItem(localStorageKeys.cid);
+      }
+
       try {
         response = await fetch(addToCartUrl, {
           method: "POST",
@@ -53,16 +72,24 @@ const handleAddToCart = async (event, title, type) => {
             Accept: "application/json",
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ Logo: title, Base: value })
+          body: JSON.stringify(data)
         });
+
+        await handleResponse(response);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
 
     if (product === fieldNames.lidOnly) {
       const addToCartUrl = getAddToCartUrl(product, type.toLowerCase());
 
+      data = { Logo: title };
+
+      if (localStorage.getItem(localStorageKeys.cid)) {
+        data.CID = localStorage.getItem(localStorageKeys.cid);
+      }
+
       try {
         response = await fetch(addToCartUrl, {
           method: "POST",
@@ -70,10 +97,12 @@ const handleAddToCart = async (event, title, type) => {
             Accept: "application/json",
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ Logo: title })
+          body: JSON.stringify(data)
         });
+
+        await handleResponse(response);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
 
@@ -96,6 +125,12 @@ const handleAddToCart = async (event, title, type) => {
           size = fieldId.completeSmall;
       }
 
+      data = { Size: size };
+
+      if (localStorage.getItem(localStorageKeys.cid)) {
+        data.CID = localStorage.getItem(localStorageKeys.cid);
+      }
+
       try {
         response = await fetch(addToCartUrl, {
           method: "POST",
@@ -103,19 +138,17 @@ const handleAddToCart = async (event, title, type) => {
             Accept: "application/json",
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({ Size: size })
+          body: JSON.stringify(data)
         });
+
+        await handleResponse(response);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
   }
 
-  if (response && response.ok) {
-    const { cartId } = await response.json();
-
-    window.location.href = `/carts/${cartId}`;
-  }
+  return (window.location = "/cart");
 };
 
 const ProductDetails = () => {
@@ -124,12 +157,32 @@ const ProductDetails = () => {
     product => getSlug(product.title) === productSlug
   );
   const { title, type, description, wideImage = false } = product;
+  const [handleFeatureClick, setHandleFeatureClick] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setHandleFeatureClick(false);
+    };
+  }, [handleFeatureClick]);
 
   useEffect(() => {
     document.getElementById(fieldId.completeSmall).checked = false;
     document.getElementById(fieldId.completeMedium).checked = false;
     document.getElementById(fieldId.completeLarge).checked = false;
   }, [product]);
+
+  if (handleFeatureClick) {
+    scrollToTop();
+
+    return (
+      <Redirect
+        push
+        to={{
+          pathname: `${routes.features.path}`
+        }}
+      />
+    );
+  }
 
   const imgSrc = getImageFilePath(title);
 
@@ -229,12 +282,12 @@ const ProductDetails = () => {
 
             <Button
               text={"Add To Cart"}
-              onClick={event => handleAddToCart(event, title, type)}
+              handleOnClick={event => handleAddToCart(event, title, type)}
               gutterTop={gutters.doubleGutter}
             />
             <Button
               text={"View All Features"}
-              handleOnClick={handleFeaturesClick}
+              handleOnClick={() => setHandleFeatureClick(true)}
               isTransparent={true}
               gutterTop={gutters.doubleGutter}
             />

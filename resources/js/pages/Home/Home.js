@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { app } from "../../constants/app";
-import { StyledCalloutSection } from "./Home.styled";
+import { StyledCalloutSection, StyledHomeContainer } from "./Home.styled";
 import Button from "../../components/Button/Button";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import { routes } from "../../constants/routes";
@@ -36,7 +36,7 @@ const Home = () => {
   }
 
   return (
-    <React.Fragment>
+    <StyledHomeContainer>
       <div id="cover-container">
         <img
           src="img/logo-transparent.png"
@@ -123,7 +123,7 @@ const Home = () => {
           />
         </div>
       </div>
-    </React.Fragment>
+    </StyledHomeContainer>
   );
 };
 

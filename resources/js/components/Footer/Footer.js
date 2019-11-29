@@ -1,7 +1,6 @@
 import React from "react";
 import { StyledFooterContainer, StyledNavLink } from "./Footer.styled";
 import { getYear } from "../../helpers/getYear";
-import logo from "../../../img/scudo-white.png";
 import ccs from "../../../img/credit-cards-icons.png";
 import { app } from "../../constants/app";
 import { routes } from "../../constants/routes";
@@ -14,16 +13,25 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Logo from "../../svg/Logo";
 
-const socialIcons = [faFacebook, faInstagram, faYoutube];
+const socialLinks = [
+  { icon: faFacebook, url: "//facebook.com/scudowallets" },
+  { icon: faInstagram, url: "//instagram.com/mgw_scudo" },
+  { icon: faYoutube, url: "//www.youtube.com/user/MGWINC" }
+];
 
 const Footer = () => {
   return (
     <StyledFooterContainer>
       <div className={"social-links"}>
-        {socialIcons.map((icon, index) => (
-          <span key={`footer-social-${index}`}>
-            <FontAwesomeIcon icon={icon} />
-          </span>
+        {socialLinks.map((link, index) => (
+          <a
+            href={link.url}
+            target={"_blank"}
+            rel={"noopener noreferrer"}
+            key={`footer-social-${index}`}
+          >
+            <FontAwesomeIcon icon={link.icon} />
+          </a>
         ))}
         <p>Connect With Us</p>
       </div>
@@ -38,7 +46,7 @@ const Footer = () => {
               to={routes[route].path}
               key={`navLink-${index}`}
             >
-              {route}
+              {routes[route].title}
             </StyledNavLink>
           ))}
         </div>

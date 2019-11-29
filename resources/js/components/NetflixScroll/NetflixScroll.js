@@ -3,7 +3,6 @@ import { StyledContainer, StyledScrollContainer } from "./NetflixScroll.styled";
 import ProductsList from "../ProductsList/ProductsList";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
-import { gutters } from "../../constants/gutters";
 
 const netflixScrollContainerId = "netflix-scroll-container";
 

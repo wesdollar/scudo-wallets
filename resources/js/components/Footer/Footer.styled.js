@@ -5,6 +5,7 @@ import { gutters } from "../../constants/gutters";
 import { px } from "../../helpers/units";
 import { NavLink } from "react-router-dom";
 import { fontSize } from "../../constants/fontSizes";
+import { breakpoint } from "../../constants/breakpoints";
 
 const divBorder = `1px solid ${colors.lightBlack}`;
 
@@ -13,6 +14,10 @@ export const StyledFooterContainer = styled.div`
   color: ${colors.white};
   padding: ${px(gutters.gutter)};
   margin: ${px(gutters.doubleGutter)} ${px(gutters.doubleGutter)} 0;
+
+  @media (max-width: ${breakpoint.phone}) {
+    margin: 0;
+  }
 
   #footer-logo {
     svg {
@@ -66,9 +71,10 @@ export const StyledFooterContainer = styled.div`
     padding-bottom: ${px(gutters.gutter)};
     border-bottom: ${divBorder};
 
-    span {
+    a {
       padding: 0 ${px(gutters.halfGutter)};
       font-size: 1.5em;
+      color: ${colors.white};
 
       &:hover {
         cursor: pointer;
@@ -90,6 +96,8 @@ export const StyledNavLink = styled(NavLink)`
   text-transform: uppercase;
   text-decoration: none;
   color: ${colors.white};
+  font-size: 0.7em;
+  line-height: 1.9em;
 
   &:hover {
     cursor: pointer;

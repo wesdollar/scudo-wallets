@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { px } from "../../helpers/units";
 import { gutters } from "../../constants/gutters";
+import { breakpoint } from "../../constants/breakpoints";
 
 export const StyledSplitContent = styled.div`
   display: flex;
@@ -19,5 +20,13 @@ export const StyledSplitContent = styled.div`
 
   div {
     width: 45%;
+  }
+
+  @media (max-width: ${breakpoint.phone}) {
+    display: block !important;
+
+    div {
+      width: 100% !important;
+    }
   }
 `;

@@ -22,5 +22,25 @@ export const routes = {
   contact: {
     path: "/contact-scudo-wallets",
     title: "Contact"
+  },
+  cart: {
+    path: "/cart",
+    title: "Shopping Cart",
+    requiresCart: true
+  },
+  privacyPolicy: {
+    path: "/scudo-privacy-policy",
+    title: "Privacy Policy",
+    hideFromNav: true
+  },
+  returnPolicy: {
+    path: "/scudo-return-policy",
+    title: "Return Policy",
+    hideFromNav: true
+  },
+  termsOfService: {
+    path: "/scudo-terms-of-service",
+    title: "Terms of Service",
+    hideFromNav: true
   }
 };

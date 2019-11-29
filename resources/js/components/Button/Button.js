@@ -17,6 +17,8 @@ const Button = ({
       isTransparent={isTransparent}
       onClick={handleOnClick}
       background={background}
+      role={"button"}
+      tabIndex={0}
     >
       {text}
     </StyledButton>

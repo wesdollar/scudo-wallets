@@ -1,3 +1,8 @@
+@import "../../node_modules/bootstrap/scss/_mixins";
+@import "../../node_modules/bootstrap/scss/_functions";
+@import "../../node_modules/bootstrap/scss/_variables";
+@import "../../node_modules/bootstrap/scss/_forms";
+
 $white: #f9f9f9;
 $black: #4e4e4e;
 $primary: #e91414;
@@ -69,25 +74,6 @@ body {
   &:focus {
     background: darken($white, 5%);
     color: $primary;
-  }
-}
-
-input[type="text"] {
-  background: none;
-  border: none;
-  border-bottom: 1px solid $white;
-  color: $white;
-  font-size: 1em;
-  padding: 5px;
-  width: 90%;
-  max-width: 450px;
-
-  &:focus {
-    outline: none;
-  }
-
-  &::placeholder {
-    color: darken($primary, 20%);
   }
 }
 
@@ -167,10 +153,6 @@ input[type="text"] {
     margin-right: -22px;
     position: relative;
     top: 1px;
-  }
-
-  input[type="text"] {
-    padding-left: 30px;
   }
 }
 

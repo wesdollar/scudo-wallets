@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyledCalloutSection } from "../Home/Home.styled";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import TopFeatures from "../../components/TopFeatures/TopFeatures";
 import Content from "../../components/Content/Content";
 import Youtube from "../../components/Youtube/Youtube";
 import { StyledSplitContent } from "./Features.styled";
+import basesImage from "../../../img/bases-info.jpg";
+import { app } from "../../constants/app";
+import Button from "../../components/Button/Button";
+import { Redirect } from "react-router-dom";
+import { routes } from "../../constants/routes";
+import { scrollToTop } from "../../helpers/scrollToTop";
 
 const Features = () => {
+  const [goToShop, setGoToShop] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      return setGoToShop(false);
+    };
+  }, [goToShop]);
+
+  if (goToShop) {
+    scrollToTop();
+
+    return (
+      <Redirect
+        push
+        to={{
+          pathname: `${routes.products.path}`
+        }}
+      />
+    );
+  }
+
   return (
     <React.Fragment>
       <Content alternateBackground={true}>
@@ -38,6 +65,18 @@ const Features = () => {
         </StyledSplitContent>
       </Content>
       <TopFeatures />
+      <Content textAlign={"center"}>
+        <p>
+          <img
+            src={basesImage}
+            alt={`${app.scudo} Bases - Available in three sizes`}
+          />
+        </p>
+        <Button
+          text={app.shopAllWallets}
+          handleOnClick={() => setGoToShop(true)}
+        />
+      </Content>
       <StyledCalloutSection>
         <NetflixScroll />
       </StyledCalloutSection>

@@ -3,5 +3,6 @@ export const app = {
   scudo: "Scudo",
   shopAllWallets: "Shop All Wallets",
   phone: "(706) 793-1770",
-  apiUrl: "https://www.mgwscudo.com"
+  apiUrl: process.env.MIX_API_URL,
+  email: "support@scudowallets.com"
 };
