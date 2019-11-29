@@ -35,6 +35,10 @@ export const StyledContentContainer = styled.div`
     iframe {
       width: 100%;
     }
+
+    h1 {
+      line-height: 1.2em;
+    }
   }
 
   ${({ half }) =>
