@@ -16,7 +16,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   height: ${px(ui.headerHeight)};
   background: ${colors.lightGrey};
-  border-bottom: 1px solid ${darken(darkenPercentage, colors.primary)};
+  border-bottom: 1px solid ${colors.lightGrey};
   display: flex;
   align-items: center;
 
@@ -24,6 +24,7 @@ export const StyledHeader = styled.header`
     background: ${colors.primary};
     color: ${colors.white};
     position: relative;
+    border-bottom: 1px solid ${darken(darkenPercentage, colors.primary)};
 
     ${({ navActive }) =>
       navActive &&

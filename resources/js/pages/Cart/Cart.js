@@ -30,6 +30,7 @@ import ReceiptAddress from "../../components/ReceiptAddress/ReceiptAddress";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import TopFeatures from "../../components/TopFeatures/TopFeatures";
 import { scrollToTop } from "../../helpers/scrollToTop";
+import Loading from "../../components/Loading/Loading";
 
 const zero = 0;
 const twoDecimals = 2;
@@ -90,10 +91,12 @@ const Cart = () => {
   const [cartTotal, setCartTotal] = useState(zero);
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderData, setOrderData] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (Object.keys(orderData).length) {
       setOrderComplete(true);
+      setIsLoading(false);
     }
   }, [orderData]);
 
@@ -127,10 +130,16 @@ const Cart = () => {
       } catch (error) {
         // TODO: handle error
       }
+
+      setIsLoading(false);
     };
 
     getCart();
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   if (!products.length) {
     return (
@@ -328,9 +337,10 @@ const Cart = () => {
                     <div>
                       <Button
                         text={"Place Order"}
-                        handleOnClick={event =>
-                          handleCheckout(event, setOrderData)
-                        }
+                        handleOnClick={event => {
+                          setIsLoading(true);
+                          handleCheckout(event, setOrderData);
+                        }}
                       />
                     </div>
                   </Content>

@@ -11,19 +11,20 @@ const featuresBlock1 = [
   {
     header: "Swappable Lids & Bases",
     text:
-      "Collect all the logos and swap out your wallet's capacity to fit the needs of day."
+      "Collect all the logos and swap out your wallet's capacity tofit the needs of day."
   },
   {
     header: "Locks Tight, Easy to Open",
     text:
-      "Unique toggle mechanism keeps contents where they belong, and still allows for quick one-handed opening."
+      "Unique spring loaded latch mechanism keeps contents where they belong, and still allows for quick, one-handed opening."
   }
 ];
 
 const featuresBlock2 = [
   {
     header: "Lightweight, Less Than 4oz",
-    text: "Fits in any pocket, and at 4oz you'll hardly know it's there."
+    text:
+      "Fits in any pocket, and, at under 4oz, you'll hardly know it's there."
   },
   {
     header: "Customizable Capacity",
