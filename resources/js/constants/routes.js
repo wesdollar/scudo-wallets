@@ -17,7 +17,8 @@ export const routes = {
   },
   about: {
     path: "/about-scudo-wallets",
-    title: "About"
+    title: "About",
+    hideFromNav: true
   },
   contact: {
     path: "/contact-scudo-wallets",
