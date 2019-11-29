@@ -11,7 +11,6 @@ import TopFeatures from "../../components/TopFeatures/TopFeatures";
 
 const Home = () => {
   const [redirectShopWallets, setRedirectShopWallets] = useState(false);
-  const launchMessage = "Coming Black Friday 2019";
 
   useEffect(() => {
     return () => {
@@ -46,7 +45,6 @@ const Home = () => {
         <div id="intro-text-container">
           <span className="xl-text">{app.name}</span>
           <span className="lg-text">Your best wallet yet.</span>
-          <span id="coming-message">// {launchMessage}</span>
           <Button text={app.shopAllWallets} handleOnClick={onButtonClick} />
         </div>
         <img
