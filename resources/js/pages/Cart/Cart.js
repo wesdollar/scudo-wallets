@@ -237,7 +237,7 @@ const Cart = () => {
           <div className={"cart-totals"}>
             <div>
               Subtotal
-              <span>{cartTotal}</span>
+              <span>{cartTotal.toFixed(twoDecimals)}</span>
             </div>
             <div>
               Shipping & Handling
@@ -245,7 +245,7 @@ const Cart = () => {
             </div>
             <div>
               *Total
-              <span>{cartTotal}</span>
+              <span>${cartTotal.toFixed(twoDecimals)}</span>
             </div>
             <Text gutterTop={gutters.gutter} fontSize={fontSize.small}>
               *For orders shipped to Georgia, tax will be calculated and added
