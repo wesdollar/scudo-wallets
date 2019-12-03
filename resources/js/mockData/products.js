@@ -135,7 +135,8 @@ export const vectors = [
     title: "Army",
     type: wraps.full,
     description: "",
-    id: 1
+    id: 1,
+    wideImage
   },
   {
     title: "Marine",
@@ -216,7 +217,8 @@ export const vectors = [
     title: "Astronaut",
     type: wraps.full,
     description: "",
-    id: 1
+    id: 1,
+    wideImage
   },
   {
     title: "Lion Success Failure",
