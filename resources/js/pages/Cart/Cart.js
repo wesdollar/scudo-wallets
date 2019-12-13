@@ -20,6 +20,7 @@ import { fontSize } from "../../constants/fontSizes";
 import Text from "../../components/Text/Text";
 import { gutters } from "../../constants/gutters";
 import AddressForm, {
+  fieldId,
   formPrefixes,
   formRowProps
 } from "../../components/AddressForm/AddressForm";
@@ -41,7 +42,31 @@ const checkoutUrl = `${app.apiUrl}/checkout/process/`;
 const deleteItemUrl = `${app.apiUrl}/carts/product/delete/`;
 const cartUrl = `${app.apiUrl}/carts/`;
 
-const handleCheckout = async (event, setOrderData) => {
+const requiredFields = {
+  [`billing${fieldId.first}`]: { display: "Billing First Name" },
+  [`billing${fieldId.last}`]: { display: "Billing Last Name" },
+  [`billing${fieldId.phone}`]: { display: "Billing Phone Number" },
+  [`billing${fieldId.email}`]: { display: "Billing Email Address" },
+  [`billing${fieldId.address}`]: { display: "Billing Mailing Address" },
+  [`billing${fieldId.city}`]: { display: "Billing City" },
+  [`billing${fieldId.state}`]: { display: "Billing State" },
+  [`billing${fieldId.zip}`]: { display: "Billing Zip Code" },
+  [`shipping${fieldId.first}`]: { display: "Shipping First Name" },
+  [`shipping${fieldId.last}`]: { display: "Shipping Last Name" },
+  [`shipping${fieldId.phone}`]: { display: "Shipping Phone Number" },
+  [`shipping${fieldId.email}`]: { display: "Shipping Email Address" },
+  [`shipping${fieldId.address}`]: { display: "Shipping Mailing Address" },
+  [`shipping${fieldId.city}`]: { display: "Shipping City" },
+  [`shipping${fieldId.state}`]: { display: "Shipping State" },
+  [`shipping${fieldId.zip}`]: { display: "Shipping Zip Code" },
+  ccName: { display: "Name on Card" },
+  ccNumber: { display: "Credit Card Number" },
+  ccExpirationMonth: { display: "Credit Card Expiration Month" },
+  ccExpirationYear: { display: "Credit Card Expiration Year" },
+  ccCVV: { display: "Credit Card Security Code" }
+};
+
+const handleCheckout = async (event, setOrderData, setIsLoading) => {
   event.preventDefault();
   const formData = new FormData(document.getElementById(checkoutFormId));
   const data = {};
@@ -51,6 +76,21 @@ const handleCheckout = async (event, setOrderData) => {
   }
 
   data.CID = localStorage.getItem(localStorageKeys.cid);
+
+  let formIsValid = true;
+
+  Object.keys(requiredFields).map(field => {
+    if (!data[field].length) {
+      // eslint-disable-next-line no-alert
+      alert(`Missing required field ${requiredFields[field].display}`);
+
+      formIsValid = false;
+    }
+  });
+
+  if (!formIsValid) {
+    return setIsLoading(false);
+  }
 
   let response;
 
@@ -77,12 +117,17 @@ const handleCheckout = async (event, setOrderData) => {
       }
 
       if (json.error && json.creditCardFailed) {
+        setIsLoading(false);
         // eslint-disable-next-line no-alert
         alert("Your credit card could not be processed. Please try again.");
       }
     }
   } catch (error) {
-    // TODO: handle error
+    setIsLoading(false);
+    // eslint-disable-next-line no-alert
+    alert(
+      `Something went wrong. Please try again. If the problem persists, please give us a call at ${app.phone}.`
+    );
   }
 };
 
@@ -259,7 +304,7 @@ const Cart = () => {
                 <div>{price}</div>
                 <div>
                   <em className={"mobile-only"}>Quantity:</em> {quantity}
-                  {allowCartItemDelete && (
+                  {!orderComplete && allowCartItemDelete && (
                     <span
                       onClick={() => deleteItem(id, setProducts)}
                       role={"button"}
@@ -269,7 +314,7 @@ const Cart = () => {
                       <FontAwesomeIcon icon={faTrashAlt} />
                     </span>
                   )}
-                  {allowCartItemEditQuantity && (
+                  {!orderComplete && allowCartItemEditQuantity && (
                     <span>
                       <FontAwesomeIcon icon={faEdit} />
                     </span>
@@ -405,7 +450,7 @@ const Cart = () => {
                         text={"Place Order"}
                         handleOnClick={event => {
                           setIsLoading(true);
-                          handleCheckout(event, setOrderData);
+                          handleCheckout(event, setOrderData, setIsLoading);
                         }}
                       />
                     </div>

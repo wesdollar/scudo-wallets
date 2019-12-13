@@ -162,6 +162,10 @@ export const StyledAddressFormsContainer = styled.div`
     padding-left: ${px(gutters.smallGutter)};
     color: ${colors.primary};
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (max-width: ${breakpoint.phone}) {
       display: block;
       padding-left: 0;
