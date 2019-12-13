@@ -170,6 +170,7 @@ const AddressForm = ({ prefix }) => {
             className="form-control"
             name={`${prefix}${fieldId.state}`}
           >
+            <option value="" />
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
