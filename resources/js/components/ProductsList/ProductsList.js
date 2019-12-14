@@ -7,6 +7,8 @@ import { routes } from "../../constants/routes";
 import { Redirect } from "react-router-dom";
 import { getSlug } from "../../helpers/getSlug";
 import { scrollToTop } from "../../helpers/scrollToTop";
+import LazyLoad from "react-lazyload";
+import { app } from "../../constants/app";
 
 const getProducts = () => {
   return sortBy(vectors, "title");
@@ -56,7 +58,9 @@ const ProductsList = () => {
         tabIndex={0}
         role={"button"}
       >
-        <img src={imgSrc} alt={`Scudo Wallets Vector ${title}`} />
+        <LazyLoad offset={200} once>
+          <img src={imgSrc} alt={`${app.scudo} Wallets Vector ${title}`} />
+        </LazyLoad>
         <p>
           {title}
           <span>{type}</span>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Header from "./Header/Header";
 import Home from "../pages/Home/Home";
 import Products from "../pages/Products/Products";
@@ -21,28 +21,34 @@ const App = () => (
   <React.Fragment>
     <Header />
     <StyledPageWrapper>
-      <Route exact path={routes.home.path} component={Home} />
-      <Route exact path={routes.products.path} component={Products} />
-      <Route
-        exact
-        path="/scudo-vector-wallets/:productSlug"
-        component={ProductDetails}
-      />
-      <Route exact path={routes.features.path} component={Features} />
-      <Route exact path={routes.faqs.path} component={Faqs} />
-      <Route exact path={routes.about.path} component={About} />
-      <Route exact path={routes.contact.path} component={Contact} />
-      <Route exact path={routes.cart.path} component={Cart} />
-      <Route exact path={routes.privacyPolicy.path} component={PrivacyPolicy} />
-      <Route exact path={routes.returnPolicy.path} component={ReturnPolicy} />
-      <Route
-        exact
-        path={routes.termsOfService.path}
-        component={TermsOfService}
-      />
-      <Route path="*">
-        <PageNoteFound />
-      </Route>
+      <Switch>
+        <Route exact path={routes.home.path} component={Home} />
+        <Route exact path={routes.products.path} component={Products} />
+        <Route
+          exact
+          path="/scudo-vector-wallets/:productSlug"
+          component={ProductDetails}
+        />
+        <Route exact path={routes.features.path} component={Features} />
+        <Route exact path={routes.faqs.path} component={Faqs} />
+        <Route exact path={routes.about.path} component={About} />
+        <Route exact path={routes.contact.path} component={Contact} />
+        <Route exact path={routes.cart.path} component={Cart} />
+        <Route
+          exact
+          path={routes.privacyPolicy.path}
+          component={PrivacyPolicy}
+        />
+        <Route exact path={routes.returnPolicy.path} component={ReturnPolicy} />
+        <Route
+          exact
+          path={routes.termsOfService.path}
+          component={TermsOfService}
+        />
+        <Route path="*">
+          <PageNoteFound />
+        </Route>
+      </Switch>
     </StyledPageWrapper>
     <Footer />
   </React.Fragment>
