@@ -7,7 +7,6 @@ import { routes } from "../../constants/routes";
 import { Redirect } from "react-router-dom";
 import { getSlug } from "../../helpers/getSlug";
 import { scrollToTop } from "../../helpers/scrollToTop";
-import LazyLoad from "react-lazyload";
 import { app } from "../../constants/app";
 import PropTypes from "prop-types";
 
@@ -15,11 +14,10 @@ const getProducts = () => {
   return sortBy(vectors, "title");
 };
 
+// eslint-disable-next-line no-unused-vars
 const ProductsList = ({ isNetflixScroll }) => {
   const [redirect, setRedirect] = useState(false);
   const [selectedProductTitle, setSelectedProductTitle] = useState("");
-  // eslint-disable-next-line no-magic-numbers
-  const lazyLoadOffset = isNetflixScroll ? [100, 0] : 200;
 
   useEffect(() => {
     return () => {
@@ -61,9 +59,7 @@ const ProductsList = ({ isNetflixScroll }) => {
         tabIndex={0}
         role={"button"}
       >
-        <LazyLoad offset={lazyLoadOffset} overflow={isNetflixScroll}>
-          <img src={imgSrc} alt={`${app.scudo} Wallets Vector ${title}`} />
-        </LazyLoad>
+        <img src={imgSrc} alt={`${app.scudo} Wallets Vector ${title}`} />
         <p>
           {title}
           <span>{type}</span>
