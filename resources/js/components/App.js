@@ -15,6 +15,7 @@ import Cart from "../pages/Cart/Cart";
 import PrivacyPolicy from "../pages/PrivacyPolicy/PrivacyPolicy";
 import ReturnPolicy from "../pages/ReturnPolicy/ReturnPolicy";
 import TermsOfService from "../pages/TermsOfService/TermsOfService";
+import PageNoteFound from "../pages/PageNotFound/PageNotFound";
 
 const App = () => (
   <React.Fragment>
@@ -39,6 +40,9 @@ const App = () => (
         path={routes.termsOfService.path}
         component={TermsOfService}
       />
+      <Route path="*">
+        <PageNoteFound />
+      </Route>
     </StyledPageWrapper>
     <Footer />
   </React.Fragment>
