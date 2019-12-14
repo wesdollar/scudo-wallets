@@ -11,6 +11,7 @@ import Button from "../../components/Button/Button";
 import { Redirect } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import { scrollToTop } from "../../helpers/scrollToTop";
+import LazyLoad from "react-lazyload";
 
 const Features = () => {
   const [goToShop, setGoToShop] = useState(false);
@@ -66,12 +67,14 @@ const Features = () => {
       </Content>
       <TopFeatures />
       <Content textAlign={"center"}>
-        <p>
-          <img
-            src={basesImage}
-            alt={`${app.scudo} Bases - Available in three sizes`}
-          />
-        </p>
+        <LazyLoad offset={200}>
+          <div>
+            <img
+              src={basesImage}
+              alt={`${app.scudo} Bases - Available in three sizes`}
+            />
+          </div>
+        </LazyLoad>
         <Button
           text={app.shopAllWallets}
           handleOnClick={() => setGoToShop(true)}

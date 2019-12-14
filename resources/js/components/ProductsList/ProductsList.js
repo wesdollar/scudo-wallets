@@ -9,14 +9,17 @@ import { getSlug } from "../../helpers/getSlug";
 import { scrollToTop } from "../../helpers/scrollToTop";
 import LazyLoad from "react-lazyload";
 import { app } from "../../constants/app";
+import PropTypes from "prop-types";
 
 const getProducts = () => {
   return sortBy(vectors, "title");
 };
 
-const ProductsList = () => {
+const ProductsList = ({ isNetflixScroll }) => {
   const [redirect, setRedirect] = useState(false);
   const [selectedProductTitle, setSelectedProductTitle] = useState("");
+  // eslint-disable-next-line no-magic-numbers
+  const lazyLoadOffset = isNetflixScroll ? [100, 0] : 200;
 
   useEffect(() => {
     return () => {
@@ -58,7 +61,7 @@ const ProductsList = () => {
         tabIndex={0}
         role={"button"}
       >
-        <LazyLoad offset={200} once>
+        <LazyLoad offset={lazyLoadOffset} overflow={isNetflixScroll}>
           <img src={imgSrc} alt={`${app.scudo} Wallets Vector ${title}`} />
         </LazyLoad>
         <p>
@@ -68,6 +71,14 @@ const ProductsList = () => {
       </StyledContainer>
     );
   });
+};
+
+ProductsList.propTypes = {
+  isNetflixScroll: PropTypes.bool
+};
+
+ProductsList.defaultProps = {
+  isNetflixScroll: false
 };
 
 export default ProductsList;

@@ -35,7 +35,7 @@ const netflixScroll = direction => {
 const NetflixScroll = () => (
   <StyledContainer>
     <StyledScrollContainer id={netflixScrollContainerId}>
-      <ProductsList />
+      <ProductsList isNetflixScroll={true} />
     </StyledScrollContainer>
     <div className={"scroll-buttons"}>
       <FontAwesomeIcon
