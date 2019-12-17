@@ -1,8 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { fieldId } from "../AddressForm/AddressForm";
+import {
+  domesticFieldValue,
+  fieldId,
+  formPrefixes,
+  internationalFieldValue
+} from "../AddressForm/AddressForm";
 
 const ReceiptAddress = ({ orderData, prefix, header }) => {
+  const country = orderData[`${prefix}${fieldId.country}`];
+
   return (
     <React.Fragment>
       <h4>{header}</h4>
@@ -11,15 +18,37 @@ const ReceiptAddress = ({ orderData, prefix, header }) => {
           orderData[`${prefix}${fieldId.last}`]
         }`}{" "}
         <br />
-        {`${orderData[`${prefix}${fieldId.address}`]}`} <br />
-        {orderData[`${prefix}${fieldId.address2}`] && (
+        {country === domesticFieldValue && (
           <React.Fragment>
-            {orderData[`${prefix}${fieldId.address2}`]} <br />
+            {`${orderData[`${prefix}${fieldId.address}`]}`} <br />
+            {orderData[`${prefix}${fieldId.address2}`] && (
+              <React.Fragment>
+                {orderData[`${prefix}${fieldId.address2}`]} <br />
+              </React.Fragment>
+            )}
+            {`${orderData[`${prefix}${fieldId.city}`]}, ${
+              orderData[`${prefix}${fieldId.state}`]
+            } ${orderData[`${prefix}${fieldId.zip}`]}`}
           </React.Fragment>
         )}
-        {`${orderData[`${prefix}${fieldId.city}`]}, ${
-          orderData[`${prefix}${fieldId.state}`]
-        } ${orderData[`${prefix}${fieldId.zip}`]}`}
+        {prefix === formPrefixes.shipping &&
+          country === internationalFieldValue && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: orderData[fieldId.internationalShippingAddress].replace(
+                  /(?:\r\n|\r|\n)/g,
+                  "<br />"
+                )
+              }}
+            />
+          )}
+        {prefix === formPrefixes.billing &&
+          country === internationalFieldValue && (
+            <React.Fragment>
+              {orderData[`${prefix}${fieldId.address}`]} <br />
+              {orderData[`${prefix}${fieldId.zip}`]}
+            </React.Fragment>
+          )}
       </p>
     </React.Fragment>
   );

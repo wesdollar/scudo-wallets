@@ -19,6 +19,10 @@ $gutter: 30px;
   margin-left: $gutter;
 }
 
+.muted-text {
+  color: lighten($black, 20%);
+}
+
 body {
   margin: 0;
   padding: 0;

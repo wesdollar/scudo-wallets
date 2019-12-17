@@ -42,7 +42,7 @@ const checkoutUrl = `${app.apiUrl}/checkout/process/`;
 const deleteItemUrl = `${app.apiUrl}/carts/product/delete/`;
 const cartUrl = `${app.apiUrl}/carts/`;
 
-const requiredFields = {
+const getRequiredFields = () => ({
   [`billing${fieldId.first}`]: { display: "Billing First Name" },
   [`billing${fieldId.last}`]: { display: "Billing Last Name" },
   [`billing${fieldId.phone}`]: { display: "Billing Phone Number" },
@@ -64,10 +64,18 @@ const requiredFields = {
   ccExpirationMonth: { display: "Credit Card Expiration Month" },
   ccExpirationYear: { display: "Credit Card Expiration Year" },
   ccCVV: { display: "Credit Card Security Code" }
-};
+});
 
-const handleCheckout = async (event, setOrderData, setIsLoading) => {
+const handleCheckout = async (
+  event,
+  setOrderData,
+  setIsLoading,
+  isInternationalBilling,
+  isInternationalShipping
+  // eslint-disable-next-line max-params
+) => {
   event.preventDefault();
+  const requiredFields = getRequiredFields();
   const formData = new FormData(document.getElementById(checkoutFormId));
   const data = {};
 
@@ -78,6 +86,32 @@ const handleCheckout = async (event, setOrderData, setIsLoading) => {
   data.CID = localStorage.getItem(localStorageKeys.cid);
 
   let formIsValid = true;
+
+  if (isInternationalShipping) {
+    delete requiredFields[`shipping${fieldId.zip}`];
+    delete requiredFields[`shipping${fieldId.state}`];
+    delete requiredFields[`shipping${fieldId.city}`];
+    delete requiredFields[`shipping${fieldId.address}`];
+
+    data[`shipping${fieldId.zip}`] = "";
+    data[`shipping${fieldId.state}`] = "";
+    data[`shipping${fieldId.city}`] = "";
+    data[`shipping${fieldId.address}`] = "";
+    data[`shipping${fieldId.address2}`] = "";
+
+    requiredFields.intlShippingAddress = {
+      display: "International Shipping Label"
+    };
+  }
+
+  if (isInternationalBilling) {
+    delete requiredFields[`billing${fieldId.state}`];
+    delete requiredFields[`billing${fieldId.city}`];
+
+    data[`billing${fieldId.state}`] = "";
+    data[`billing${fieldId.city}`] = "";
+    data[`billing${fieldId.address2}`] = "";
+  }
 
   Object.keys(requiredFields).map(field => {
     if (!data[field].length) {
@@ -173,12 +207,6 @@ const copyFromShipping = () => {
       // do nothing
     }
   });
-
-  const [selectedState] = document.getElementsByName("shippingState");
-
-  // eslint-disable-next-line no-magic-numbers
-  document.getElementsByName("billingState")[0].value =
-    selectedState.options[selectedState.selectedIndex].value;
 };
 
 const Cart = () => {
@@ -187,6 +215,8 @@ const Cart = () => {
   const [orderComplete, setOrderComplete] = useState(false);
   const [orderData, setOrderData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isInternationalBilling, setIsInternationalBilling] = useState(false);
+  const [isInternationalShipping, setIsInternationalShipping] = useState(false);
 
   useEffect(() => {
     if (Object.keys(orderData).length) {
@@ -359,7 +389,10 @@ const Cart = () => {
               <Content half>
                 <div>
                   <h2>Shipping Information</h2>
-                  <AddressForm prefix={formPrefixes.shipping} />
+                  <AddressForm
+                    prefix={formPrefixes.shipping}
+                    handleIsInternationalShipping={setIsInternationalShipping}
+                  />
                 </div>
                 <div>
                   <h2>
@@ -374,7 +407,10 @@ const Cart = () => {
                       Copy from Shipping
                     </span>
                   </h2>
-                  <AddressForm prefix={formPrefixes.billing} />
+                  <AddressForm
+                    prefix={formPrefixes.billing}
+                    handleIsInternationalBilling={setIsInternationalBilling}
+                  />
                 </div>
               </Content>
             </StyledAddressFormsContainer>
@@ -450,7 +486,13 @@ const Cart = () => {
                         text={"Place Order"}
                         handleOnClick={event => {
                           setIsLoading(true);
-                          handleCheckout(event, setOrderData, setIsLoading);
+                          handleCheckout(
+                            event,
+                            setOrderData,
+                            setIsLoading,
+                            isInternationalBilling,
+                            isInternationalShipping
+                          );
                         }}
                       />
                     </div>
