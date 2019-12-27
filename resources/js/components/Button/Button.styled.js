@@ -20,7 +20,7 @@ export const StyledButton = styled.span`
 
   &:hover {
     cursor: pointer;
-    background: ${({ background }) => darken(0.02, background)};
+    background: ${({ background }) => darken(0.01, background)};
     transform: translate(-1px, 2px);
   }
 
