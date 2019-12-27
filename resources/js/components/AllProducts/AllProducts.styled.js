@@ -8,7 +8,7 @@ export const StyledContainer = styled.div`
   margin-top: ${px(gutters.gutter)};
   justify-content: center;
 
-  div {
+  a {
     padding-left: ${px(gutters.halfGutter)};
     padding-right: ${px(gutters.halfGutter)};
     margin-bottom: ${px(gutters.gutter)};

@@ -19,7 +19,7 @@ const Header = () => {
   return (
     <StyledHeader navActive={navActive}>
       <StyledLogoContainer>
-        <Link to={"/react"}>
+        <Link to={"/"}>
           <Logo />
         </Link>
       </StyledLogoContainer>

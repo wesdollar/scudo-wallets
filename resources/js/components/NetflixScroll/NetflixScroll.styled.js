@@ -41,10 +41,11 @@ export const StyledScrollContainer = styled.div`
   flex-wrap: nowrap;
   overflow-x: scroll;
 
-  div {
+  a {
     margin-left: ${px(gutters.halfGutter)};
     margin-right: ${px(gutters.halfGutter)};
     text-align: center;
+    color: ${colors.white};
 
     &:last-of-type {
       padding-right: 100px;

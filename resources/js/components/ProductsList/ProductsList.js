@@ -36,7 +36,8 @@ const ProductsList = ({ isNetflixScroll }) => {
     );
   }
 
-  const handleOnClick = title => {
+  const handleOnClick = (event, title) => {
+    event.preventDefault();
     scrollToTop();
     setSelectedProductTitle(title);
     setRedirect(true);
@@ -55,9 +56,9 @@ const ProductsList = ({ isNetflixScroll }) => {
     return (
       <StyledContainer
         key={`product-list-${index}`}
-        onClick={() => handleOnClick(title)}
+        onClick={event => handleOnClick(event, title)}
         tabIndex={0}
-        role={"button"}
+        href={`${routes.products.path}/${getSlug(title)}`}
       >
         <img src={imgSrc} alt={`${app.scudo} Wallets Vector ${title}`} />
         <p>
