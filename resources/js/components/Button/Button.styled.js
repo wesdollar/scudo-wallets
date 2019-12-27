@@ -7,7 +7,7 @@ import { breakpoint } from "../../constants/breakpoints";
 import { darken } from "polished";
 
 export const StyledButton = styled.span`
-  transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out, color 250ms ease-in-out;
   display: inline-block !important;
   min-width: 200px;
   background: ${({ background }) => background};
