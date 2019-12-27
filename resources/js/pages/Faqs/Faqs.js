@@ -1,7 +1,7 @@
 import React from "react";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
-import Content from "../../components/Content/Content";
 import { app } from "../../constants/app";
+import { StyledContent } from "./Faqs.styled";
 
 const Faqs = () => {
   const faqs = [
@@ -38,15 +38,15 @@ const Faqs = () => {
 
   return (
     <React.Fragment>
-      <Content>
-        <h1>FAQs</h1>
+      <StyledContent>
+        <h1>Frequently Asked Questions</h1>
         {faqs.map(({ question, answer }, index) => (
-          <React.Fragment key={`faqs-${index}`}>
+          <div key={`faqs-${index}`}>
             <h2>{question}</h2>
             <p>{answer}</p>
-          </React.Fragment>
+          </div>
         ))}
-      </Content>
+      </StyledContent>
 
       <NetflixScroll />
     </React.Fragment>
