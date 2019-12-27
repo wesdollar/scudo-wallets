@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { px } from "../../helpers/units";
 import { gutters } from "../../constants/gutters";
+import { colors } from "../../constants/colors";
 
 export const StyledContainer = styled.div`
   display: flex;
@@ -12,6 +13,11 @@ export const StyledContainer = styled.div`
     padding-left: ${px(gutters.halfGutter)};
     padding-right: ${px(gutters.halfGutter)};
     margin-bottom: ${px(gutters.gutter)};
+    color: ${colors.black};
+
+    &:hover {
+      color: ${colors.mediumBlack};
+    }
 
     img {
       height: 225px;

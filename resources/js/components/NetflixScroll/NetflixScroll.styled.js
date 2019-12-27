@@ -47,6 +47,10 @@ export const StyledScrollContainer = styled.div`
     text-align: center;
     color: ${colors.white};
 
+    &:hover {
+      color: ${colors.mediumGrey};
+    }
+
     &:last-of-type {
       padding-right: 100px;
     }
