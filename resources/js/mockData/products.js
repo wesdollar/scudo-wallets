@@ -288,5 +288,12 @@ export const vectors = [
     description: "",
     id: 1,
     wideImage
+  },
+  {
+    title: "Patriot Skull",
+    type: wraps.standard,
+    description: "",
+    id: 1,
+    wideImage
   }
 ];
