@@ -50,7 +50,7 @@ const ProductDetails = () => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>{`${title} | ${app.name}`}</title>
+        <title>{`${title} | ${app.scudo} Vector Wallets`}</title>
       </Helmet>
       <StyledContainer wideImage={wideImage}>
         <div className={"img-container"}>
