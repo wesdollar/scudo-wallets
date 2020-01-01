@@ -29,7 +29,7 @@ export const routes = {
   },
   about: {
     path: "/about-scudo-wallets",
-    title: "About",
+    title: `About ${app.scudo}`,
     metaTitle: `About ${app.scudo} by MGW`,
     hideFromNav: true,
     description: `${app.scudo} are manufactured by one of the most trusted names in precision CNC manufacturing, MGW LTD., who's customer service and commitment to quality is unrivaled.`

@@ -4,6 +4,7 @@ import TopFeatures from "../../components/TopFeatures/TopFeatures";
 import Content from "../../components/Content/Content";
 import ContactUs from "../../components/ContactInfo/ContactInfo";
 import Helmet from "react-helmet";
+import { routes } from "../../constants/routes";
 
 const About = () => {
   const whatToExpect = [
@@ -20,7 +21,7 @@ const About = () => {
     "We do not offer 2 day air or next day because we can only ship this method when the items are in stock and we do not have online inventory. If you are in a rush and need the parts fast then please call us to determine availability. (706) 793-1770"
   ];
 
-  const title = `About ${app.scudo} by MGW`;
+  const title = routes.about.metaTitle;
 
   return (
     <React.Fragment>
@@ -42,9 +43,9 @@ const About = () => {
         </p>
         <p>
           In 1989, MGW built a state of the art 12,000 square foot facility in
-          Augusta, GA., where it currently operates. In 1994, Louis' son George
-          Ciamillo took over management of the company in order for Louis to
-          pursue other ventures and focus on additional product development.
+          Augusta, GA., where it currently operates. In 1994, Louis&apos; son
+          George Ciamillo took over management of the company in order for Louis
+          to pursue other ventures and focus on additional product development.
           While still largely focused on the manufacturing of defense
           components, George began branching out into the automotive field due
           to his passion for sports cars and racing.
