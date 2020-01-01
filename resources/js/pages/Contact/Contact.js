@@ -1,10 +1,15 @@
 import React from "react";
 import Content from "../../components/Content/Content";
 import { app } from "../../constants/app";
+import Helmet from "react-helmet";
+import { routes } from "../../constants/routes";
 
 const Contact = () => {
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{routes.contact.metaTitle}</title>
+      </Helmet>
       <Content>
         <h1>The quest for a better wallet ends here.</h1>
         <p>

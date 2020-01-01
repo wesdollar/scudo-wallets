@@ -12,6 +12,7 @@ import { Redirect } from "react-router-dom";
 import { routes } from "../../constants/routes";
 import { scrollToTop } from "../../helpers/scrollToTop";
 import LazyLoad from "react-lazyload";
+import Helmet from "react-helmet";
 
 const Features = () => {
   const [goToShop, setGoToShop] = useState(false);
@@ -37,6 +38,9 @@ const Features = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{routes.features.metaTitle}</title>
+      </Helmet>
       <Content alternateBackground={true}>
         <StyledSplitContent>
           <div>

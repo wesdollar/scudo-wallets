@@ -4,9 +4,13 @@ import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import TopFeatures from "../../components/TopFeatures/TopFeatures";
 import Content from "../../components/Content/Content";
 import { app } from "../../constants/app";
+import Helmet from "react-helmet";
 
 const PageNoteFound = () => (
   <React.Fragment>
+    <Helmet>
+      <title>{`${app.name} | Page Not Found`}</title>
+    </Helmet>
     <StyledContainer>
       <Content>
         <h1>Ut oh! You&apos;ve ventured into the unknown!</h1>

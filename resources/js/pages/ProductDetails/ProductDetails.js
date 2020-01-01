@@ -9,6 +9,8 @@ import { routes } from "../../constants/routes";
 import { scrollToTop } from "../../helpers/scrollToTop";
 import AddToCart from "../../components/AddToCart/AddToCart";
 import { fieldId } from "../../constants/fieldIds";
+import Helmet from "react-helmet";
+import { app } from "../../constants/app";
 
 const ProductDetails = () => {
   const { productSlug } = useParams();
@@ -47,6 +49,9 @@ const ProductDetails = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{`${title} | ${app.name}`}</title>
+      </Helmet>
       <StyledContainer wideImage={wideImage}>
         <div className={"img-container"}>
           <img src={imgSrc} alt={`${title}`} />

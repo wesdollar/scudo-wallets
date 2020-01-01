@@ -3,6 +3,7 @@ import { app } from "../../constants/app";
 import TopFeatures from "../../components/TopFeatures/TopFeatures";
 import Content from "../../components/Content/Content";
 import ContactUs from "../../components/ContactInfo/ContactInfo";
+import Helmet from "react-helmet";
 
 const About = () => {
   const whatToExpect = [
@@ -19,10 +20,15 @@ const About = () => {
     "We do not offer 2 day air or next day because we can only ship this method when the items are in stock and we do not have online inventory. If you are in a rush and need the parts fast then please call us to determine availability. (706) 793-1770"
   ];
 
+  const title = `About ${app.scudo} by MGW`;
+
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <Content>
-        <h1>About {app.scudo} by MGW</h1>
+        <h1>{title}</h1>
         <p>
           MGW was established in 1984 by the current owner and president, Louis
           Ciamillo. The main focus was to CNC manufacture specialized firearms

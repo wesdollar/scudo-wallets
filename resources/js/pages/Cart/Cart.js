@@ -32,6 +32,8 @@ import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import TopFeatures from "../../components/TopFeatures/TopFeatures";
 import { scrollToTop } from "../../helpers/scrollToTop";
 import Loading from "../../components/Loading/Loading";
+import Helmet from "react-helmet";
+import { routes } from "../../constants/routes";
 
 const zero = 0;
 const twoDecimals = 2;
@@ -266,11 +268,16 @@ const Cart = () => {
     return <Loading />;
   }
 
+  const title = "Shopping Cart";
+
   if (!products.length) {
     return (
       <React.Fragment>
+        <Helmet>
+          <title>{routes.cart.metaTitle}</title>
+        </Helmet>
         <Content alternateBackground>
-          <h1>Shopping Cart</h1>
+          <h1>{title}</h1>
           <Text>There are no items in your cart. Go shop!</Text>
         </Content>
         <NetflixScroll />
@@ -281,8 +288,11 @@ const Cart = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{routes.cart.metaTitle}</title>
+      </Helmet>
       <Content alternateBackground>
-        <h1>{orderComplete ? "Receipt" : "Shopping Cart"}</h1>
+        <h1>{orderComplete ? "Receipt" : title}</h1>
         {orderComplete && (
           <React.Fragment>
             <Text gutterBottom={gutters.gutter}>

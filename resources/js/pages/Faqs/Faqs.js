@@ -2,6 +2,8 @@ import React from "react";
 import NetflixScroll from "../../components/NetflixScroll/NetflixScroll";
 import { app } from "../../constants/app";
 import { StyledContent } from "./Faqs.styled";
+import Helmet from "react-helmet";
+import { routes } from "../../constants/routes";
 
 const Faqs = () => {
   const faqs = [
@@ -38,6 +40,9 @@ const Faqs = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <title>{routes.faqs.metaTitle}</title>
+      </Helmet>
       <StyledContent>
         <h1>Frequently Asked Questions</h1>
         {faqs.map(({ question, answer }, index) => (
