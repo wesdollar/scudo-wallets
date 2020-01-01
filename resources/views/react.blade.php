@@ -22,8 +22,8 @@
   <link href="{{ mix("css/app.css") }}" rel="stylesheet">
   <script defer src="{{ mix('js/ssr-client.js') }}"></script>
 
-  <meta property="og:title" content="Scudo Wallets" />
-  <meta property="og:description" content="Built slim, light, and made to hold everything important. A unique design perfected to fit into your life." />
+  <meta property="og:title" content="{{ $title ?? $defaultTitle }}" />
+  <meta property="og:description" content="{{ $description ?? $defaultDescription }}" />
   <meta property="og:image" content="{{ config("app.url") }}/img/fb-og-scudo.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />

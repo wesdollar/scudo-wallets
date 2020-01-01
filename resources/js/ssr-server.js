@@ -50,7 +50,7 @@ if (!currentRoute) {
 
   // eslint-disable-next-line prefer-destructuring
   title = `${currentProduct.title} | ${app.scudo} Vector Wallets`;
-  description = `Learn more about the ${title} by ${app.name}`;
+  description = `Learn more about the ${title} by ${app.name}. Lightweight, durable wallets made to hold everything you need.`;
 } else {
   /* eslint-disable prefer-destructuring */
   title = currentRoute.metaTitle || currentRoute.title;
