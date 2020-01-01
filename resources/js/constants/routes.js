@@ -44,7 +44,6 @@ export const routes = {
     path: "/cart",
     title: `Shopping Cart`,
     metaTitle: `Shopping Cart ${titleSuffix}`,
-    requiresCart: true,
     description:
       "View your shopping cart, add more wallets, make changes to your order, but - most importantly - get the wallet that's made for you!"
   },
